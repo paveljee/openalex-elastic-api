@@ -1,0 +1,374 @@
+{
+    "meta": {
+        "count": 2385,
+        "db_response_time_ms": 288,
+        "page": 1,
+        "per_page": 25,
+        "groups_count": null
+    },
+    "results": [
+        {
+            "id": "https://openalex.org/A5100450462",
+            "display_name": "Li Fei-Fei",
+            "relevance_score": 80788.51,
+            "works_count": 766,
+            "display_name_alternatives": [
+                "Li F. Fei‐Fei",
+                "Feifei Li ‐",
+                "Li Feifei",
+                "Fei‐Fei Li",
+                "Li Fei‐Fei",
+                "Feifei Li",
+                "L. Fei‐Fei"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325826",
+            "display_name": "Fei Li",
+            "relevance_score": 18209.809,
+            "works_count": 770,
+            "display_name_alternatives": [
+                "Fengguo LI",
+                "F. Li",
+                "Fei Li",
+                "Fei Li ‐",
+                "Fei Teng Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325885",
+            "display_name": "Fei Li",
+            "relevance_score": 14787.218,
+            "works_count": 277,
+            "display_name_alternatives": [
+                "F. Li",
+                "Fei Li",
+                "Fei Fei Li",
+                "Fajun Li",
+                "Frank Weikai Li",
+                "Fanmin Li",
+                "Fenzong Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100339724",
+            "display_name": "Peng‐Fei Li",
+            "relevance_score": 10350.309,
+            "works_count": 367,
+            "display_name_alternatives": [
+                "Peng‐Fei Li",
+                "Peng‐Fei Li.",
+                "Pengfei Li",
+                "Li Peng‐Fei"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100440730",
+            "display_name": "Yafei Li",
+            "relevance_score": 9854.1,
+            "works_count": 353,
+            "display_name_alternatives": [
+                "LI Ya‐Fei",
+                "Li Yafei",
+                "Ya‐Fei Li",
+                "Yafei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325817",
+            "display_name": "Fei Li",
+            "relevance_score": 9830.561,
+            "works_count": 325,
+            "display_name_alternatives": [
+                "F. Li",
+                "Fei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325757",
+            "display_name": "Fei Li",
+            "relevance_score": 9670.029,
+            "works_count": 276,
+            "display_name_alternatives": [
+                "Fei LI ‐",
+                "F. Li",
+                "Fei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5072912162",
+            "display_name": "Laifei Cheng",
+            "relevance_score": 9121.61,
+            "works_count": 1226,
+            "display_name_alternatives": [
+                "Li‐Fen Cheng",
+                "L. F. Cheng",
+                "Cheng",
+                "Lixun cheng",
+                "Leqin CHENG",
+                "Laifei Cheng",
+                "Cheng Lai‐Fei",
+                "Laifung Cheng",
+                "Zhoucheng Wang",
+                "L.F Cheng",
+                "Li‐fang Cheng",
+                "Cheng Lai",
+                "Liqiang Cheng",
+                "L. Cheng",
+                "Lai Fei Cheng",
+                "Lai‐Fei Cheng",
+                "L.‐F. Cheng",
+                "Zhou‐Cheng Wang",
+                "Cheng Laifei",
+                "Lifang Cheng",
+                "Lingfeng Cheng"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100426995",
+            "display_name": "Hongfei Li",
+            "relevance_score": 8998.459,
+            "works_count": 266,
+            "display_name_alternatives": [
+                "Hongfei Li",
+                "Hong‐Fei Li",
+                "Li Hongfei",
+                "Li Hong‐Fei"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325793",
+            "display_name": "Fei Li",
+            "relevance_score": 8850.968,
+            "works_count": 201,
+            "display_name_alternatives": [
+                "F. Li",
+                "Fei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100450450",
+            "display_name": "Feifei Li",
+            "relevance_score": 8793.725,
+            "works_count": 213,
+            "display_name_alternatives": [
+                "Li Feifei",
+                "Fei‐Fei Li",
+                "Li Fei‐Fei",
+                "Feifei Li",
+                "F.F. Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325856",
+            "display_name": "Fei Li",
+            "relevance_score": 8353.575,
+            "works_count": 315,
+            "display_name_alternatives": [
+                "F Li",
+                "Fei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325763",
+            "display_name": "Fei Li",
+            "relevance_score": 8297.081,
+            "works_count": 276,
+            "display_name_alternatives": [
+                "F. Li",
+                "Fei Li",
+                "Fei Li-YICCAS"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100450469",
+            "display_name": "Feifei Li",
+            "relevance_score": 8288.294,
+            "works_count": 268,
+            "display_name_alternatives": [
+                "Li Feifei",
+                "Fei‐Fei Li",
+                "Li Fei‐Fei",
+                "Fei Fei Li",
+                "Feifei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5017335558",
+            "display_name": "Xifei Li",
+            "relevance_score": 8209.508,
+            "works_count": 537,
+            "display_name_alternatives": [
+                "Xi‐Fei Li",
+                "Xifei Li",
+                "X LI"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325829",
+            "display_name": "Fei Li",
+            "relevance_score": 8203.631,
+            "works_count": 352,
+            "display_name_alternatives": [
+                "F. Li",
+                "Fei Li",
+                "Fangda Li",
+                "Fei Yue Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325819",
+            "display_name": "Fei Li",
+            "relevance_score": 8189.4307,
+            "works_count": 336,
+            "display_name_alternatives": [
+                "F. Li",
+                "Fuchen Li",
+                "Fei Li",
+                "F.Y. Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5030184973",
+            "display_name": "Fei-Li Zhao",
+            "relevance_score": 8033.9307,
+            "works_count": 43,
+            "display_name_alternatives": [
+                "F.‐L. Zhao",
+                "F.L. Zhao",
+                "F. Zhao",
+                "Fei Zhao",
+                "Fei‐Li Zhao",
+                "Fei Li Zhao"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100421454",
+            "display_name": "Yi Li",
+            "relevance_score": 7835.3823,
+            "works_count": 2161,
+            "display_name_alternatives": [
+                "Linfu Yi",
+                "Yi. Li",
+                "Yishuang Li",
+                "Yi Fei Li",
+                "Yinge Li",
+                "H. Li",
+                "Kaili Chen",
+                "Yenan Li",
+                "Yanman Li",
+                "Lim Zhe Yi",
+                "Li Yi",
+                "Yuantong Li",
+                "Yuanlin Li",
+                "Y. Li",
+                "Yuanyu Li",
+                "L. Yi",
+                "Yongfu Li",
+                "Ye‐Wen Li",
+                "Yi Fan Li",
+                "Kai‐Li Chen",
+                "Henry Yi Li",
+                "Yongyang Li",
+                "Liyan Yi",
+                "Xuan Liu and Yi Li",
+                "Yongcai Li",
+                "Yi Li ‐",
+                "YuZhang Li",
+                "YukKwan Li",
+                "Loh Mun Yi"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325906",
+            "display_name": "Fei Li",
+            "relevance_score": 7713.492,
+            "works_count": 245,
+            "display_name_alternatives": [
+                "Fei Yang Chan Li",
+                "F.‐Y. LI",
+                "Fei Li",
+                "Fei Li ‐",
+                "Dr.Fei Li from Hunan university"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100737373",
+            "display_name": "Ming‐Fei Li",
+            "relevance_score": 7543.9224,
+            "works_count": 212,
+            "display_name_alternatives": [
+                "Ming‐Fei Li",
+                "Li Ming‐Fei",
+                "Mingfei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100740268",
+            "display_name": "Li Fei",
+            "relevance_score": 7500.5933,
+            "works_count": 507,
+            "display_name_alternatives": [
+                "F. Li",
+                "Li Fei",
+                "Fei Li",
+                "Fei‐Ze Li",
+                "Li Xiang fei",
+                "Fubin Li",
+                "L I Fei",
+                "F. Li",
+                "Fei Li",
+                "Li, F.",
+                "Li, Fei",
+                "李飞"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5008075505",
+            "display_name": "Fei‐Fei Liu",
+            "relevance_score": 7495.3994,
+            "works_count": 750,
+            "display_name_alternatives": [
+                "F. Liu",
+                "Fang‐Yue Liu",
+                "Liu Zhimin",
+                "fei Liu",
+                "F.‐F Liu",
+                "F.‐F. Liu",
+                "F. F. Liu",
+                "Liu Zhi‐min",
+                "FaiJin Liu",
+                "F‐F. Liu",
+                "Fei‐Fei Liu",
+                "C. LEE and J.‐H. LI F.‐F LIU",
+                "F. ‐F. LIU",
+                "Fei Fei Liu",
+                "Feifei Liu",
+                "Fangqiang Liu",
+                "Furui Liu"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100325810",
+            "display_name": "Fei Li",
+            "relevance_score": 7432.3247,
+            "works_count": 64,
+            "display_name_alternatives": [
+                "Fei Li"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5100740269",
+            "display_name": "Fei Li",
+            "relevance_score": 7424.9585,
+            "works_count": 676,
+            "display_name_alternatives": [
+                "F. Li",
+                "Li Fei",
+                "Fei Li",
+                "Fufu Li"
+            ]
+        }
+    ],
+    "group_by": []
+}

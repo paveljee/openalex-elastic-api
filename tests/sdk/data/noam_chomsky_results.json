@@ -1,0 +1,242 @@
+{
+    "meta": {
+        "count": 50,
+        "db_response_time_ms": 57,
+        "page": 1,
+        "per_page": 25,
+        "groups_count": null
+    },
+    "results": [
+        {
+            "id": "https://openalex.org/A5072532913",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 75578.8,
+            "works_count": 1291,
+            "display_name_alternatives": [
+                "N. Chomsky",
+                "Noam Abraham Chomsky",
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5113443510",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 7488.136,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5111972667",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 5026.216,
+            "works_count": 16,
+            "display_name_alternatives": [
+                "N. Chomsky",
+                "Noam A. Chomsky",
+                "Noam. Chomsky",
+                "Chomsky Noam"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5092289227",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 4843.1494,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5096231047",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 852.60565,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5085715408",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 653.7001,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5104839804",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 381.84796,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5104396579",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 375.15662,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5117420326",
+            "display_name": "NOAM CHOMSKY",
+            "relevance_score": 370.25128,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "NOAM CHOMSKY"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5093521050",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 370.25128,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5051291358",
+            "display_name": "Avram Noam Chomsky",
+            "relevance_score": 363.41345,
+            "works_count": 4,
+            "display_name_alternatives": [
+                "Avram Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5115619005",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 97.72389,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5092329545",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 96.7968,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5104758512",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 96.7968,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5117455745",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.4809,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5117634481",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.4809,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5092175644",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.46199,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5094800362",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.46199,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5099698099",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.46199,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5106802749",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.46199,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5097355859",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.140335,
+            "works_count": 3,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5104585585",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.140335,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5117656197",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 95.140335,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5102038496",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 94.75316,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5104628430",
+            "display_name": "Noam Chomsky",
+            "relevance_score": 94.75316,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Noam Chomsky"
+            ]
+        }
+    ],
+    "group_by": []
+}

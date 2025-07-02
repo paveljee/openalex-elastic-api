@@ -1,0 +1,258 @@
+{
+    "meta": {
+        "count": 48,
+        "db_response_time_ms": 40,
+        "page": 1,
+        "per_page": 25,
+        "groups_count": null
+    },
+    "results": [
+        {
+            "id": "https://openalex.org/A5056503301",
+            "display_name": "Élodie Brisset",
+            "relevance_score": 2851.659,
+            "works_count": 143,
+            "display_name_alternatives": [
+                "Élodie Brisset",
+                "E. Brisset",
+                "Elodie Brisset",
+                "Postdoctoral Marie-Curie IF - 2017-2018",
+                "Postdoctoral Junior Leader La Caixa - 2019",
+                "Researcher CNRS - 2020 - on-going"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5038745913",
+            "display_name": "Marie Curie",
+            "relevance_score": 2496.6372,
+            "works_count": 85,
+            "display_name_alternatives": [
+                "M. M. E. Curie",
+                "M. Curie",
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5024177158",
+            "display_name": "Matteo Zallio",
+            "relevance_score": 2170.7976,
+            "works_count": 56,
+            "display_name_alternatives": [
+                "M. Zallio",
+                "Matteo Zallio",
+                "Marie Curie Senior UX Research Fellow"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5112581527",
+            "display_name": "Marie Curie",
+            "relevance_score": 1604.8076,
+            "works_count": 6,
+            "display_name_alternatives": [
+                "Marie Sklodovska Curie",
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5053317469",
+            "display_name": "Gabriel Spreitzer",
+            "relevance_score": 1370.1814,
+            "works_count": 20,
+            "display_name_alternatives": [
+                "G. Spreitzer",
+                "Gabriel Spreitzer",
+                "Spreitzer Gabriel - ETH Zürich (Marie Curie Fellow)"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5068041217",
+            "display_name": "M. Curie",
+            "relevance_score": 1244.0746,
+            "works_count": 39,
+            "display_name_alternatives": [
+                "Marie Sklodowska Curie",
+                "M. Curie",
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5086072405",
+            "display_name": "Marie-Curie Fellow",
+            "relevance_score": 1031.8594,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie‐Curie Fellow"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5084906441",
+            "display_name": "Joana Araújo",
+            "relevance_score": 950.3504,
+            "works_count": 30,
+            "display_name_alternatives": [
+                "Joana Batista de Araújo",
+                "Joana Araújo",
+                "Joana Araujo",
+                "Expert for ethics evaluation of the European Commission (Marie Curie Grants, European \tResearch …",
+                "Member of Ethics Comittie of Hospital Luz Arrabida"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5042304976",
+            "display_name": "Ahmet Burak Ozyurt",
+            "relevance_score": 865.7762,
+            "works_count": 12,
+            "display_name_alternatives": [
+                "Ahmet Burak Ozyurt",
+                "PhD Student, Marie Curie Early-Stage Researcher"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5039786101",
+            "display_name": "Marie Curie-Paris",
+            "relevance_score": 409.06464,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Marie Curie‐Paris"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5098375642",
+            "display_name": "Marie Curie Fellow",
+            "relevance_score": 330.06833,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie Fellow"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5024700653",
+            "display_name": "Marie Curie",
+            "relevance_score": 299.04398,
+            "works_count": 4,
+            "display_name_alternatives": [
+                "M Curie",
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5034997227",
+            "display_name": "Marie Curie-Skłodowska",
+            "relevance_score": 273.0712,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie‐Skłodowska"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5018129808",
+            "display_name": "Marie Skłodowska-Curie",
+            "relevance_score": 200.38506,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Skłodowska‐Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5046933271",
+            "display_name": "Marie Curie",
+            "relevance_score": 73.34648,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "M. T. Curie",
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5095305276",
+            "display_name": "Marie Curie",
+            "relevance_score": 73.065575,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5068773159",
+            "display_name": "Marie Curie",
+            "relevance_score": 72.85958,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5094092233",
+            "display_name": "Marie Curie",
+            "relevance_score": 72.79516,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5099454797",
+            "display_name": "Marie Curie",
+            "relevance_score": 72.79516,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5094448657",
+            "display_name": "Marie Curie",
+            "relevance_score": 72.65975,
+            "works_count": 5,
+            "display_name_alternatives": [
+                "Marie Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5096308184",
+            "display_name": "Marie Curie Itn",
+            "relevance_score": 69.52008,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie Itn"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5030516719",
+            "display_name": "Marie Curie Fellow",
+            "relevance_score": 68.55665,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Marie Curie Fellow"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5049860569",
+            "display_name": "Edificio Marie-Curie",
+            "relevance_score": 68.55665,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Edificio Marie‐Curie"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5058012731",
+            "display_name": "Marie Curie Actions",
+            "relevance_score": 68.46868,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Marie Curie Actions"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5038997640",
+            "display_name": "Marie Curie Skłodowska",
+            "relevance_score": 68.37108,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Marie Curie Skłodowska"
+            ]
+        }
+    ],
+    "group_by": []
+}

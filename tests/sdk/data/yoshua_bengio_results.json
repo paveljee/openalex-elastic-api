@@ -1,0 +1,87 @@
+{
+    "meta": {
+        "count": 8,
+        "db_response_time_ms": 64,
+        "page": 1,
+        "per_page": 25,
+        "groups_count": null
+    },
+    "results": [
+        {
+            "id": "https://openalex.org/A5086198262",
+            "display_name": "Yoshua Bengio",
+            "relevance_score": 155437.83,
+            "works_count": 1510,
+            "display_name_alternatives": [
+                "Y. Bengio",
+                "Yoshua Bengio",
+                "Bengio Yoshua"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5028826050",
+            "display_name": "Yoshua Bengio",
+            "relevance_score": 7553.046,
+            "works_count": 64,
+            "display_name_alternatives": [
+                "Y. Bengio",
+                "Yoshua Bengio"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5061525983",
+            "display_name": "Cesar Laurent Yoshua Bengio",
+            "relevance_score": 1605.8322,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Cesar Laurent Yoshua Bengio"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5092916372",
+            "display_name": "Yoshua Bengio",
+            "relevance_score": 1019.0548,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Yoshua Bengio"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5052335299",
+            "display_name": "Yoshua Bengio",
+            "relevance_score": 701.8647,
+            "works_count": 7,
+            "display_name_alternatives": [
+                "Yoshua Bengio"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5007579166",
+            "display_name": "YOSHUA BENGIO",
+            "relevance_score": 578.2633,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "YOSHUA BENGIO"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5048743151",
+            "display_name": "Yoshua Bengio",
+            "relevance_score": 412.95282,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Yoshua Bengio"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5036728419",
+            "display_name": "Yoshua Bengio Aar",
+            "relevance_score": 99.35507,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Yoshua Bengio Aar"
+            ]
+        }
+    ],
+    "group_by": []
+}
