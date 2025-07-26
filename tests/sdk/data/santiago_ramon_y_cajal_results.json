@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "count": 16,
+        "db_response_time_ms": 116,
+        "page": 1,
+        "per_page": 25,
+        "groups_count": null
+    },
+    "results": [
+        {
+            "id": "https://openalex.org/A5088341849",
+            "display_name": "Santiago Ramón y Cajal",
+            "relevance_score": 41721.39,
+            "works_count": 839,
+            "display_name_alternatives": [
+                "S Ramón y Cajal‐Agüeras",
+                "Ramon Cajal",
+                "S Ramony Cajal",
+                "S. Ramon Cajal",
+                "S. Ramón Y. Cajal",
+                "S. R. Cajal",
+                "Santiago Ramón Y. Cajal",
+                "S. Ramón Cajal‐Agüeras",
+                "Santiago Ramón Cajal",
+                "S. Ramón",
+                "SANTIAGO RAMcN Y CAJAL",
+                "S. Ramón Y Cajal",
+                "S. Ramón Y Cajal‐Agüeras",
+                "S. Ram�n y Cajal",
+                "SantiagoRamon Y Cajal",
+                "S. Ramón Cajal",
+                "S. Junquera",
+                "S. R. y Cajal",
+                "Santiago Ramón y Cajal Junquera",
+                "S. Ramon y Cajal Junquera",
+                "Santiago R.y Cajal",
+                "Santiago Ram�n Y Cajal",
+                "Santiago Ramón‐y‐Cajal",
+                "S. Ramóny Cajal",
+                "S.R.Y. Cajal",
+                "R. Cajal",
+                "Ramón Y Cajal S",
+                "Santiago Ram n y Cajal",
+                "Santiago Ramon Cajal",
+                "Santiago Ramon‐y‐Cajal",
+                "SANTIAGO RAMÓNY CAJAL",
+                "Santiago Ramon",
+                "Ramon Y Cajal S",
+                "Santiago Ramon y Cajal Junquera",
+                "Berta Pons",
+                "S. Cajal",
+                "Santiago Ramónycajal",
+                "S. R. y. Cajal",
+                "S. Ramón y Cajal Junquera",
+                "Ramon y Cajal",
+                "S. Ramon Y Cajal",
+                "J. Ramon y Cajal",
+                "S. Ramon Y. Cajal",
+                "Santiago Ramon Y Cajal Agüeras",
+                "Santiago Ramón",
+                "Santiago Ram�n y Cajal",
+                "S.R.Y Cajal",
+                "Santiago Ramon Y. Cajal",
+                "S R Junquera",
+                "Santiago J. Ramón y Cajal",
+                "SANTIAGO RAMON Y CAJAL."
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5089429945",
+            "display_name": "Santiago Ramón‐García",
+            "relevance_score": 7209.998,
+            "works_count": 54,
+            "display_name_alternatives": [
+                "Santiago Ramon y Cajal",
+                "Santiago Ramon‐Garcia",
+                "Santiago Ramón‐García",
+                "S. Ramon‐Garcia"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5096805360",
+            "display_name": "Santiago Ramón y Cajal",
+            "relevance_score": 6091.0737,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5045738823",
+            "display_name": "D. Cajal",
+            "relevance_score": 2217.0698,
+            "works_count": 12,
+            "display_name_alternatives": [
+                "D. SANTIAGO RAMON Y CAJAL",
+                "D. Cajal",
+                "Denis Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5022526894",
+            "display_name": "Santiago Ramón y Cajal Agüeras",
+            "relevance_score": 1928.4177,
+            "works_count": 27,
+            "display_name_alternatives": [
+                "Santiago Ramón Y Cajal Agüeras"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5106117753",
+            "display_name": "Santiago Ramón y Cajal",
+            "relevance_score": 1537.6836,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5105752880",
+            "display_name": "Santiago Ramón y Cajal",
+            "relevance_score": 880.6893,
+            "works_count": 5,
+            "display_name_alternatives": [
+                "Santiago Ramón Y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5097500516",
+            "display_name": "Santiago Ramón y Cajal",
+            "relevance_score": 585.3538,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5105970772",
+            "display_name": "Santiago Ramón y Cajal",
+            "relevance_score": 303.41077,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5071318717",
+            "display_name": "Santiago Ramon y Cajal Agueras",
+            "relevance_score": 112.67668,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramon y Cajal Agueras"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5071653879",
+            "display_name": "Santiago Ramon Cajal y Agueras",
+            "relevance_score": 63.787334,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramon Cajal y Agueras"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5067242366",
+            "display_name": "Santiago Ramón y Cajal-Agüeras",
+            "relevance_score": 56.45132,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Santiago Ramón y Cajal‐Agüeras"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5041324620",
+            "display_name": "Patronato Santiago Ramón y Cajal",
+            "relevance_score": 56.077858,
+            "works_count": 6,
+            "display_name_alternatives": [
+                "Patronato Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5096429855",
+            "display_name": "Ceip Santiago Ramón y Cajal",
+            "relevance_score": 55.44874,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Ceip Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5000820617",
+            "display_name": "Colegio Público Santiago Ramón y Cajal",
+            "relevance_score": 51.368702,
+            "works_count": 2,
+            "display_name_alternatives": [
+                "Colegio Público Santiago Ramón y Cajal"
+            ]
+        },
+        {
+            "id": "https://openalex.org/A5032726563",
+            "display_name": "Ramón y Cajal Santiago",
+            "relevance_score": 30.151361,
+            "works_count": 1,
+            "display_name_alternatives": [
+                "Ramón y Cajal Santiago"
+            ]
+        }
+    ],
+    "group_by": []
+}
