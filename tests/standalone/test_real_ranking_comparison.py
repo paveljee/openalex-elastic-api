@@ -24,9 +24,13 @@ OPENALEX_API = "https://api.openalex.org"
 def fetch_openalex_ranking(search_name, limit=25):
     """Get ranking from real OpenAlex API"""
     url = f"{OPENALEX_API}/authors"
-    params = {"search": search_name, "per-page": limit}
+    params = {
+        "search": search_name,
+        "per-page": limit,
+        "mailto": "[email protected]"  # Polite pool for better rate limits
+    }
 
-    time.sleep(0.1)  # Rate limit
+    time.sleep(0.15)  # Rate limit
 
     try:
         response = requests.get(url, params=params, timeout=10)
