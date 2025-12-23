@@ -108,16 +108,46 @@ def test_real_ranking_comparison():
     This test compares REAL rankings, not query structures.
     """
     test_cases = [
+        # Famous scientists (high citation counts)
         "Albert Einstein",
         "Marie Curie",
-        "Einstein",
-        "John Smith",
-        "José García",
-        "Wei Wang",
-        "Thomas Müller",
-        "Mohamed Ahmed",
-        "O'Brien",
         "Richard Feynman",
+        "Stephen Hawking",
+
+        # Single surname (ambiguous)
+        "Einstein",
+        "Curie",
+
+        # Common Western names
+        "John Smith",
+        "Michael Johnson",
+
+        # Diacritics (European)
+        "José García",
+        "Thomas Müller",
+        "François Dubois",
+
+        # Asian names (Chinese, Japanese, Korean)
+        "Wei Wang",
+        "Li Zhang",
+        "Yuki Tanaka",
+        "Kim Min-jun",
+
+        # Middle Eastern/Arabic names
+        "Mohamed Ahmed",
+        "Ali Hassan",
+
+        # Special characters
+        "O'Brien",
+        "Jean-Pierre",
+
+        # Hyphenated/compound names
+        "Anne-Marie Laurent",
+        "Carlos García-Pérez",
+
+        # Short names
+        "Li Wei",
+        "Ann Lee",
     ]
 
     print("=" * 80)

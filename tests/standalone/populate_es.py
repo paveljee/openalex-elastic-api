@@ -9,13 +9,48 @@ from elasticsearch import Elasticsearch
 es = Elasticsearch(['http://127.0.0.1:9200'])
 
 # Test queries to get diverse author data
+# Covers: famous scientists, common names, diacritics, Asian names, special chars
 queries = [
+    # Famous scientists (high citation counts)
     "Albert Einstein",
     "Marie Curie",
-    "Einstein",
-    "John Smith",
-    "Wei Wang",
     "Richard Feynman",
+    "Stephen Hawking",
+
+    # Single surname (ambiguous)
+    "Einstein",
+    "Curie",
+
+    # Common Western names
+    "John Smith",
+    "Michael Johnson",
+
+    # Diacritics (European)
+    "José García",
+    "Thomas Müller",
+    "François Dubois",
+
+    # Asian names (Chinese, Japanese, Korean)
+    "Wei Wang",
+    "Li Zhang",
+    "Yuki Tanaka",
+    "Kim Min-jun",
+
+    # Middle Eastern/Arabic names
+    "Mohamed Ahmed",
+    "Ali Hassan",
+
+    # Special characters
+    "O'Brien",
+    "Jean-Pierre",
+
+    # Hyphenated/compound names
+    "Anne-Marie Laurent",
+    "Carlos García-Pérez",
+
+    # Short names
+    "Li Wei",
+    "Ann Lee",
 ]
 
 indexed = 0
@@ -29,10 +64,23 @@ for query in queries:
         "mailto": "[email protected]"
     }
 
-    response = requests.get(url, params=params, timeout=10)
+    # Retry with exponential backoff on rate limit
+    max_retries = 3
+    for attempt in range(max_retries):
+        response = requests.get(url, params=params, timeout=10)
+        if response.status_code == 200:
+            break
+        elif response.status_code == 503 and attempt < max_retries - 1:
+            wait_time = 2 ** attempt  # 1s, 2s, 4s
+            print(f"  Rate limited, waiting {wait_time}s...")
+            time.sleep(wait_time)
+        else:
+            print(f"  API error: {response.status_code} - {response.text[:200]}")
+            break
+
     if response.status_code != 200:
-        print(f"  API error: {response.status_code} - {response.text[:200]}")
         continue
+
     authors = response.json().get("results", [])
 
     for author in authors:
@@ -48,7 +96,7 @@ for query in queries:
         indexed += 1
 
     print(f"  Indexed {len(authors)} authors")
-    time.sleep(0.2)
+    time.sleep(0.5)  # Increased to avoid rate limiting
 
 print(f"\nTotal indexed: {indexed} authors")
 
