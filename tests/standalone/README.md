@@ -1,16 +1,35 @@
-# Standalone Exact Equality Tests
+# Standalone Author Matching Tests
 
 ## Purpose
 
-These tests compare the **ORIGINAL** code against the **EXTRACTED** code with **EXACT EQUALITY** assertions.
+These tests validate the **EXTRACTED** author matching logic against the **ORIGINAL** implementation.
 
 **NO fuzzy matching. NO approximations. Either EQUAL or FAIL.**
 
-## Running the Tests
+## Test Types
+
+### 1. Exact Equality Tests (No Elasticsearch Required)
+
+Tests that prove query structures are mathematically identical.
 
 ```bash
 cd tests/standalone
 python -m pytest test_exact_equality.py -v
+```
+
+### 2. Real Ranking Comparison Tests (Requires Elasticsearch)
+
+Tests that compare actual ranking results against OpenAlex API using real data.
+
+```bash
+# Setup Elasticsearch (one-time setup)
+./setup_elasticsearch.sh
+
+# Populate with test data
+python populate_es.py
+
+# Run ranking comparison tests
+python -m pytest test_real_ranking_comparison.py -v
 ```
 
 ## Expected Output
@@ -92,3 +111,40 @@ Are **MATHEMATICALLY IDENTICAL**.
 If they weren't, the tests would **FAIL**.
 
 They **PASS** because the code is **IDENTICAL**.
+
+## Available Scripts
+
+### `setup_elasticsearch.sh`
+Automated setup script that:
+- Downloads Elasticsearch 8.9.0
+- Configures single-node cluster
+- Creates `authors-v16` index with proper mappings
+- Handles root user setup (creates elasticsearch user)
+
+### `populate_es.py`
+Populates Elasticsearch with real author data from OpenAlex API:
+- Fetches 192 diverse authors (Einstein, Curie, common names, etc.)
+- Creates realistic test dataset
+- Required for running ranking comparison tests
+
+### `test_exact_equality.py`
+8 tests proving query structure equality (no ES required)
+
+### `test_real_ranking_comparison.py`
+Real-world ranking validation against OpenAlex API (requires ES)
+
+## Quick Start
+
+```bash
+cd tests/standalone
+
+# One-time setup
+./setup_elasticsearch.sh
+python populate_es.py
+
+# Run all tests
+python -m pytest -v
+
+# Stop Elasticsearch when done
+kill $(cat elasticsearch.pid)
+```
