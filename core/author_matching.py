@@ -113,10 +113,10 @@ class AuthorRanker:
             """
         elif scaling_type == "log":
             script_source = """
-            if (doc['cited_by_count'].size() == 0 || doc['cited_by_count'].value == 0) {
+            if (doc['cited_by_count'].size() == 0 || doc['cited_by_count'].value <= 1) {
                 return 0.5;
             } else {
-                return 1 + Math.log10(doc['cited_by_count'].value + 1);
+                return 1 + Math.log(doc['cited_by_count'].value);
             }
             """
         else:

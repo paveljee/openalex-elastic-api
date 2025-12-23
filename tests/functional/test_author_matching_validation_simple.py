@@ -127,7 +127,7 @@ class TestAuthorMatchingLogic:
 
         # Verify script uses log
         script = query_dict["function_score"]["functions"][0]["script_score"]["script"]["source"]
-        assert "log10" in script or "Math.log10" in script, "Should use log10 function"
+        assert "Math.log" in script, "Should use Math.log (natural log) function"
 
     def test_author_ranker_invalid_scaling_type(self):
         """Test that invalid scaling type raises error"""
@@ -184,7 +184,7 @@ class TestAuthorMatchingLogic:
         query_dict = query.to_dict()
 
         script = query_dict["function_score"]["functions"][0]["script_score"]["script"]["source"]
-        assert "log10" in script or "Math.log10" in script, "Should use log scaling"
+        assert "Math.log" in script, "Should use Math.log (natural log) scaling"
 
     def test_default_sort_order(self):
         """Test default sort order constant"""
