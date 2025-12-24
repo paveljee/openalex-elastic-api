@@ -1,160 +1,169 @@
 """
-REAL RANKING LOGIC TEST
+REAL DEAL TEST: Original vs Extracted on SAME Elasticsearch
 
 Compares ranking order between:
-1. OpenAlex API (their ranking)
-2. Our extracted ranking logic applied to the same data
+1. ORIGINAL code from core/search.py
+2. EXTRACTED code from core/author_matching.py
 
-No Elasticsearch needed - we apply the ranking algorithm directly.
+Both querying the SAME local Elasticsearch instance.
+
+If queries are identical, results MUST be 100% identical.
 """
 import sys
 sys.path.insert(0, '/home/user/openalex-elastic-api')
 
-import requests
-import time
-import math
+from elasticsearch_dsl import Search, connections
+
+from core.search import SearchOpenAlex
+from core.author_matching import build_author_search_query
+from settings import AUTHORS_INDEX, ES_URL
 
 
-OPENALEX_API = "https://api.openalex.org"
-
-
-def fetch_authors_from_api(search_name, limit=50):
-    """Get authors from OpenAlex API with their ranking"""
-    url = f"{OPENALEX_API}/authors"
-    params = {
-        "search": search_name,
-        "per-page": limit,
-        "mailto": "[email protected]"
-    }
-
-    time.sleep(0.15)
-
+def fetch_original_ranking(search_name, limit=25):
+    """Get ranking using ORIGINAL core/search.py logic"""
     try:
-        response = requests.get(url, params=params, timeout=10)
-        response.raise_for_status()
-        results = response.json().get("results", [])
+        connections.create_connection('default', hosts=[ES_URL], timeout=5)
 
-        authors = []
-        for r in results:
-            authors.append({
-                'id': r['id'],
-                'display_name': r['display_name'],
-                'cited_by_count': r.get('cited_by_count', 0),
-                'works_count': r.get('works_count', 0),
-                'relevance_score': r.get('relevance_score', 0.0),  # API's score
-            })
-        return authors
+        # Build query using ORIGINAL logic
+        search_obj = SearchOpenAlex(
+            search_terms=search_name,
+            secondary_field='display_name_alternatives',
+            is_author_name_query=True
+        )
+
+        # Build base query then apply citation boost
+        base_query = search_obj.author_name_query()
+        query = search_obj.citation_boost_query(base_query, scaling_type="sqrt")
+
+        # Execute with same sorting as production
+        s = Search(index=AUTHORS_INDEX)
+        s = s.query(query)
+        s = s.sort("_score", "-works_count", "id")
+        s = s[:limit]
+
+        results = s.execute()
+        return [hit.id for hit in results], [hit.meta.score for hit in results]
     except Exception as e:
-        print(f"API Error: {e}")
+        print(f"Original Error: {e}")
+        import traceback
+        traceback.print_exc()
+        return None, None
+
+
+def fetch_extracted_ranking(search_name, limit=25):
+    """Get ranking using EXTRACTED core/author_matching.py logic"""
+    try:
+        connections.create_connection('default', hosts=[ES_URL], timeout=5)
+
+        # Build query using EXTRACTED logic
+        query = build_author_search_query(search_name)
+
+        # Execute with same sorting as production
+        s = Search(index=AUTHORS_INDEX)
+        s = s.query(query)
+        s = s.sort("_score", "-works_count", "id")
+        s = s[:limit]
+
+        results = s.execute()
+        return [hit.id for hit in results], [hit.meta.score for hit in results]
+    except Exception as e:
+        print(f"Extracted Error: {e}")
+        import traceback
+        traceback.print_exc()
+        return None, None
+
+
+def compare_rankings(original_ids, original_scores, extracted_ids, extracted_scores, name):
+    """Compare two rankings with detailed output"""
+    if original_ids is None or extracted_ids is None:
+        print(f"  ⚠️  SKIP - Failed for '{name}'")
         return None
 
-
-def apply_extracted_ranking(authors, search_name):
-    """
-    Apply our extracted ranking logic to authors.
-
-    The logic from core/author_matching.py:
-    1. Base relevance score (we'll use API's relevance_score as proxy)
-    2. Citation boost: score * (1 + sqrt(cited_by_count))
-    3. Sort by: boosted_score desc, works_count desc, id asc
-    """
-    ranked = []
-
-    for author in authors:
-        # Get base score (API's relevance score)
-        base_score = author['relevance_score']
-
-        # Apply citation boost (our extracted formula)
-        cited_by_count = author['cited_by_count']
-        if cited_by_count == 0:
-            citation_multiplier = 0.5
-        else:
-            citation_multiplier = 1 + math.sqrt(cited_by_count)
-
-        boosted_score = base_score * citation_multiplier
-
-        ranked.append({
-            'id': author['id'],
-            'display_name': author['display_name'],
-            'base_score': base_score,
-            'cited_by_count': cited_by_count,
-            'works_count': author['works_count'],
-            'citation_multiplier': citation_multiplier,
-            'boosted_score': boosted_score,
-        })
-
-    # Sort by our extracted logic: boosted_score desc, works_count desc, id asc
-    ranked.sort(key=lambda x: (-x['boosted_score'], -x['works_count'], x['id']))
-
-    return ranked
-
-
-def compare_rankings(api_authors, extracted_authors, name):
-    """Compare API ranking vs our extracted ranking"""
-
-    # Get IDs in order
-    api_order = [a['id'] for a in api_authors]
-    extracted_order = [a['id'] for a in extracted_authors]
-
-    # Check exact match
-    if api_order == extracted_order:
-        print(f"  ✅ EXACT MATCH - '{name}'")
+    # Check EXACT match
+    if original_ids == extracted_ids:
+        print(f"  ✅ PERFECT MATCH - '{name}'")
+        print(f"     All {len(original_ids)} results in EXACT same order")
         return True
 
-    # Calculate differences
-    api_top5 = api_order[:5]
-    extracted_top5 = extracted_order[:5]
+    # Show differences
+    print(f"  ❌ RANKING MISMATCH - '{name}'")
+    print(f"     Original:  {original_ids[:5]}")
+    print(f"     Extracted: {extracted_ids[:5]}")
 
-    # Check top 5 overlap
-    overlap = len(set(api_top5) & set(extracted_top5))
+    # Check if same IDs, different order
+    if set(original_ids) == set(extracted_ids):
+        print(f"     → Same documents, DIFFERENT ORDER (scoring issue!)")
 
-    # Find where they differ
-    first_diff = None
-    for i in range(min(len(api_order), len(extracted_order))):
-        if api_order[i] != extracted_order[i]:
-            first_diff = i
-            break
-
-    print(f"  ❌ MISMATCH - '{name}'")
-    print(f"     Top 5 overlap: {overlap}/5")
-    print(f"     First difference at position: {first_diff}")
-
-    # Show top 5 comparison
-    print(f"\n     API order (top 5):")
-    for i, author_id in enumerate(api_top5):
-        author = next(a for a in api_authors if a['id'] == author_id)
-        print(f"       {i+1}. {author['display_name']} (score: {author.get('relevance_score', 'N/A'):.3f})")
-
-    print(f"\n     Our ranking (top 5):")
-    for i, author_id in enumerate(extracted_top5):
-        author = next(a for a in extracted_authors if a['id'] == author_id)
-        print(f"       {i+1}. {author['display_name']} (boosted: {author['boosted_score']:.3f}, " +
-              f"cites: {author['cited_by_count']}, works: {author['works_count']})")
+        # Show score differences
+        print(f"\n     Score comparison:")
+        for i in range(min(5, len(original_ids))):
+            orig_score = original_scores[i] if i < len(original_scores) else "N/A"
+            extr_score = extracted_scores[i] if i < len(extracted_scores) else "N/A"
+            print(f"       Position {i+1}: Original={orig_score:.4f}, Extracted={extr_score:.4f}")
+    else:
+        print(f"     → DIFFERENT DOCUMENTS (query mismatch!)")
 
     return False
 
 
-def test_ranking_logic():
+def test_original_vs_extracted_same_es():
     """
-    Test that our extracted ranking logic produces the same order as OpenAlex API.
+    THE REAL DEAL TEST.
+
+    Compare ORIGINAL vs EXTRACTED on SAME Elasticsearch instance.
+    If queries are identical, results MUST be 100% identical.
     """
     test_cases = [
+        # Famous scientists
         "Albert Einstein",
         "Marie Curie",
-        "Einstein",
-        "John Smith",
-        "Wei Wang",
         "Richard Feynman",
+        "Stephen Hawking",
+
+        # Ambiguous
+        "Einstein",
+        "Curie",
+
+        # Common names
+        "John Smith",
+        "Michael Johnson",
+
+        # Diacritics
+        "José García",
+        "Thomas Müller",
+        "François Dubois",
+
+        # Asian names
+        "Wei Wang",
+        "Li Zhang",
+        "Yuki Tanaka",
+        "Kim Min-jun",
+
+        # Middle Eastern
+        "Mohamed Ahmed",
+        "Ali Hassan",
+
+        # Special chars
+        "O'Brien",
+        "Jean-Pierre",
+
+        # Compound names
+        "Anne-Marie Laurent",
+        "Carlos García-Pérez",
+
+        # Short names
+        "Li Wei",
+        "Ann Lee",
     ]
 
     print("=" * 80)
-    print("RANKING LOGIC TEST")
+    print("ORIGINAL VS EXTRACTED - SAME ELASTICSEARCH INSTANCE")
     print("=" * 80)
-    print("Testing if our extracted ranking logic matches OpenAlex API ranking")
+    print(f"Testing {len(test_cases)} queries...")
     print()
 
     results = {
-        'exact_match': 0,
+        'perfect_match': 0,
         'mismatch': 0,
         'skipped': 0,
     }
@@ -162,25 +171,19 @@ def test_ranking_logic():
     for name in test_cases:
         print(f"Testing: '{name}'")
 
-        # Get authors from API
-        api_authors = fetch_authors_from_api(name, limit=25)
-
-        if not api_authors or len(api_authors) == 0:
-            print(f"  ⚠️  SKIP - No results from API")
-            results['skipped'] += 1
-            print()
-            continue
-
-        # Apply our extracted ranking logic
-        extracted_ranking = apply_extracted_ranking(api_authors, name)
+        # Get rankings from both implementations
+        original_ids, original_scores = fetch_original_ranking(name, limit=25)
+        extracted_ids, extracted_scores = fetch_extracted_ranking(name, limit=25)
 
         # Compare
-        match = compare_rankings(api_authors, extracted_ranking, name)
+        match = compare_rankings(original_ids, original_scores, extracted_ids, extracted_scores, name)
 
-        if match:
-            results['exact_match'] += 1
-        else:
+        if match is True:
+            results['perfect_match'] += 1
+        elif match is False:
             results['mismatch'] += 1
+        else:
+            results['skipped'] += 1
 
         print()
 
@@ -188,34 +191,33 @@ def test_ranking_logic():
     print("=" * 80)
     print("RESULTS:")
     print("=" * 80)
-    print(f"Exact matches:  {results['exact_match']}")
-    print(f"Mismatches:     {results['mismatch']}")
-    print(f"Skipped:        {results['skipped']}")
+    print(f"Perfect matches: {results['perfect_match']}")
+    print(f"Mismatches:      {results['mismatch']}")
+    print(f"Skipped:         {results['skipped']}")
     print("=" * 80)
 
-    total_tested = results['exact_match'] + results['mismatch']
+    # Assertion
+    total_tested = results['perfect_match'] + results['mismatch']
 
     if total_tested == 0:
-        print("\n⚠️  TEST INCONCLUSIVE - No comparisons completed")
-        assert False, "No tests could be completed"
+        print("\n❌ TEST INCONCLUSIVE - No comparisons completed")
+        return False
 
-    match_rate = results['exact_match'] / total_tested * 100
+    match_rate = results['perfect_match'] / total_tested * 100 if total_tested > 0 else 0
+
     print(f"\nMatch rate: {match_rate:.1f}%")
 
     if match_rate == 100:
-        print("✅ PERFECT - All rankings match exactly!")
-    elif match_rate >= 80:
-        print("⚠️  GOOD - Most rankings match")
-        print("\nNote: Some differences expected due to:")
-        print("  - API may use different base relevance scoring")
-        print("  - Tie-breaking may differ slightly")
+        print("✅ PERFECT - 100% exact matches! Extracted logic is IDENTICAL!")
+        assert True
+        return True
     else:
-        print("❌ SIGNIFICANT DIFFERENCES")
-        print("\nThis suggests our extracted ranking logic differs from API")
-
-    # Assert at least 50% match for test to pass
-    assert match_rate >= 50, f"Match rate too low: {match_rate}%"
+        print(f"❌ FAIL - Only {match_rate:.1f}% exact matches")
+        print("   This means the extracted logic is NOT identical to the original!")
+        assert False, f"Expected 100% match rate, got {match_rate:.1f}%"
+        return False
 
 
 if __name__ == '__main__':
-    test_ranking_logic()
+    import pytest
+    sys.exit(pytest.main([__file__, '-v', '-s']))
