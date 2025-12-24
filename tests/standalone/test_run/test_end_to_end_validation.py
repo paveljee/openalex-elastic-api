@@ -34,10 +34,13 @@ STANDALONE_DIR = Path("/home/user/openalex-elastic-api/tests/standalone")
 def check_elasticsearch_running():
     """Check if Elasticsearch is running"""
     try:
-        es = Elasticsearch([ES_HOST], request_timeout=2)
-        es.ping()
-        return True
-    except (ConnectionError, Exception):
+        es = Elasticsearch([ES_HOST], request_timeout=1)
+        result = es.ping()
+        # Double-check with cluster health
+        if result:
+            es.cluster.health()
+        return result
+    except:
         return False
 
 
