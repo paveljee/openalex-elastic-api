@@ -23,6 +23,3 @@ scratch/
 # Elasticsearch installation and data
 tests/standalone/elasticsearch-*/
 tests/standalone/*.pid
-
-# Test outputs
-tests/standalone/statistical_validation_results.json
