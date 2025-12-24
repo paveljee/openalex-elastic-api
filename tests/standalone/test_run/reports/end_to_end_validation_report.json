@@ -1,0 +1,167 @@
+{
+  "summary": {
+    "exact_match": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "top_1_overlap": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "top_3_overlap": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "top_5_overlap": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "top_10_overlap": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "top_20_overlap": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "kendall_tau": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 3
+    },
+    "spearman_rho": {
+      "mean": 0.9999999999999999,
+      "median": 0.9999999999999999,
+      "std": 0.0,
+      "p25": 0.9999999999999999,
+      "p75": 0.9999999999999999,
+      "n": 3
+    },
+    "mrr": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    },
+    "ndcg_10": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "n": 4
+    }
+  },
+  "temporal_consistency": {
+    "total_queries": 5,
+    "queries_with_duplicates": 5,
+    "perfectly_consistent": 5,
+    "consistency_rates": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "empty_consistency": {
+    "both_empty": 1,
+    "api_only_empty": 0,
+    "local_only_empty": 0,
+    "total_api_empty": 1
+  },
+  "raw_metrics": {
+    "exact_match": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "top_1_overlap": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "top_3_overlap": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "top_5_overlap": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "top_10_overlap": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "top_20_overlap": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "kendall_tau": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "spearman_rho": [
+      0.9999999999999999,
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "mrr": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "ndcg_10": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "metadata": {
+    "total_queries": 5,
+    "valid_comparisons": 4,
+    "skipped_no_results": 1
+  }
+}

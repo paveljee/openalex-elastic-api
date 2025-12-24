@@ -1,0 +1,186 @@
+{
+  "Albert Einstein": [
+    {
+      "id": "https://openalex.org/A5023888391",
+      "display_name": "Albert Einstein",
+      "display_name_alternatives": ["A. Einstein", "Einstein A."],
+      "orcid": null,
+      "works_count": 1035,
+      "cited_by_count": 175494,
+      "summary_stats": {
+        "2yr_mean_citedness": 4.5,
+        "h_index": 142,
+        "i10_index": 789
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5023888391",
+        "orcid": null
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I78577930",
+        "display_name": "Institute for Advanced Study",
+        "ror": "https://ror.org/05d3hqb41",
+        "country_code": "US",
+        "type": "education"
+      },
+      "relevance_score": 98.5
+    },
+    {
+      "id": "https://openalex.org/A5067890123",
+      "display_name": "Albert Einstein",
+      "display_name_alternatives": ["Einstein Albert"],
+      "orcid": "https://orcid.org/0000-0002-1234-5678",
+      "works_count": 45,
+      "cited_by_count": 523,
+      "summary_stats": {
+        "2yr_mean_citedness": 2.1,
+        "h_index": 12,
+        "i10_index": 18
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5067890123",
+        "orcid": "https://orcid.org/0000-0002-1234-5678"
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I12345678",
+        "display_name": "University of California, Berkeley",
+        "ror": "https://ror.org/01an7q238",
+        "country_code": "US",
+        "type": "education"
+      },
+      "relevance_score": 76.2
+    }
+  ],
+  "Marie Curie": [
+    {
+      "id": "https://openalex.org/A5020671929",
+      "display_name": "Marie Curie",
+      "display_name_alternatives": ["Maria Skłodowska-Curie", "M. Curie"],
+      "orcid": null,
+      "works_count": 892,
+      "cited_by_count": 145678,
+      "summary_stats": {
+        "2yr_mean_citedness": 3.8,
+        "h_index": 128,
+        "i10_index": 654
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5020671929",
+        "orcid": null
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I91221218",
+        "display_name": "Sorbonne University",
+        "ror": "https://ror.org/02en5vm52",
+        "country_code": "FR",
+        "type": "education"
+      },
+      "relevance_score": 95.7
+    },
+    {
+      "id": "https://openalex.org/A5089234567",
+      "display_name": "Marie Curie",
+      "display_name_alternatives": [],
+      "orcid": "https://orcid.org/0000-0003-9876-5432",
+      "works_count": 67,
+      "cited_by_count": 1234,
+      "summary_stats": {
+        "2yr_mean_citedness": 5.2,
+        "h_index": 18,
+        "i10_index": 34
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5089234567",
+        "orcid": "https://orcid.org/0000-0003-9876-5432"
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I136199984",
+        "display_name": "Harvard University",
+        "ror": "https://ror.org/03vek6s52",
+        "country_code": "US",
+        "type": "education"
+      },
+      "relevance_score": 68.4
+    }
+  ],
+  "John Smith": [
+    {
+      "id": "https://openalex.org/A5034567890",
+      "display_name": "John Smith",
+      "display_name_alternatives": ["J. Smith", "Smith John"],
+      "orcid": "https://orcid.org/0000-0001-2345-6789",
+      "works_count": 234,
+      "cited_by_count": 8976,
+      "summary_stats": {
+        "2yr_mean_citedness": 6.7,
+        "h_index": 45,
+        "i10_index": 156
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5034567890",
+        "orcid": "https://orcid.org/0000-0001-2345-6789"
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I17843823",
+        "display_name": "Stanford University",
+        "ror": "https://ror.org/00f54p054",
+        "country_code": "US",
+        "type": "education"
+      },
+      "relevance_score": 82.1
+    },
+    {
+      "id": "https://openalex.org/A5045678901",
+      "display_name": "John R. Smith",
+      "display_name_alternatives": ["John Robert Smith"],
+      "orcid": null,
+      "works_count": 156,
+      "cited_by_count": 4532,
+      "summary_stats": {
+        "2yr_mean_citedness": 4.2,
+        "h_index": 32,
+        "i10_index": 98
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5045678901",
+        "orcid": null
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I185310260",
+        "display_name": "Massachusetts Institute of Technology",
+        "ror": "https://ror.org/042nb2s44",
+        "country_code": "US",
+        "type": "education"
+      },
+      "relevance_score": 79.3
+    }
+  ],
+  "Richard Feynman": [
+    {
+      "id": "https://openalex.org/A5023456789",
+      "display_name": "Richard P. Feynman",
+      "display_name_alternatives": ["Richard Feynman", "R. Feynman", "R. P. Feynman"],
+      "orcid": null,
+      "works_count": 567,
+      "cited_by_count": 98765,
+      "summary_stats": {
+        "2yr_mean_citedness": 8.9,
+        "h_index": 95,
+        "i10_index": 432
+      },
+      "ids": {
+        "openalex": "https://openalex.org/A5023456789",
+        "orcid": null
+      },
+      "last_known_institution": {
+        "id": "https://openalex.org/I92719491",
+        "display_name": "California Institute of Technology",
+        "ror": "https://ror.org/05dxps055",
+        "country_code": "US",
+        "type": "education"
+      },
+      "relevance_score": 94.2
+    }
+  ],
+  "": []
+}

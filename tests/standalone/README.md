@@ -40,7 +40,7 @@ Validates against your saved production OpenAlex API responses.
 1. Elasticsearch running (use `./setup_elasticsearch.sh`)
 2. Authors indexed from SciSciNet v2:
    ```bash
-   python scripts/build_author_index_from_parquet.py /path/to/sciscinet/authors.parquet
+   python scripts/build_author_index_from_parquet.py /path/to/sciscinet/authors_details.parquet
    ```
 3. Your saved API response JSON files in a directory
 

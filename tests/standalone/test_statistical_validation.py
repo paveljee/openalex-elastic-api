@@ -576,7 +576,8 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
     print("=" * 80)
 
     # Save detailed results
-    output_file = "tests/standalone/statistical_validation_results.json"
+    output_file = Path("/home/user/openalex-elastic-api/tests/standalone/statistical_validation_results.json")
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     with open(output_file, 'w') as f:
         json.dump({
             'summary': results_summary,
