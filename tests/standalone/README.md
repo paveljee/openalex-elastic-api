@@ -32,6 +32,51 @@ python populate_es.py
 python -m pytest test_real_ranking_comparison.py -v
 ```
 
+### 3. Statistical Validation with Real API Responses (Requires Elasticsearch)
+
+Validates against your saved production OpenAlex API responses.
+
+**Prerequisites:**
+1. Elasticsearch running (use `./setup_elasticsearch.sh`)
+2. Authors indexed from SciSciNet v2:
+   ```bash
+   python scripts/build_author_index_from_parquet.py /path/to/sciscinet/authors.parquet
+   ```
+3. Your saved API response JSON files in a directory
+
+**Running the validation:**
+```bash
+# Put your API response files (unix timestamp filenames) in data/api_responses/
+mkdir -p data/api_responses
+# Copy your 30+ JSON files there
+
+# Run statistical validation
+python tests/standalone/test_statistical_validation.py --responses-dir=data/api_responses
+```
+
+**What you get:**
+- Temporal consistency check (for duplicate queries across time)
+- Empty query consistency (API empty → local also empty?)
+- Comprehensive ranking metrics:
+  - Exact match rate (% of identical rankings)
+  - Kendall's Tau (rank correlation: -1 to 1)
+  - Top-10 overlap (% of shared top-10 results)
+  - NDCG@10 (ranking quality metric)
+- Statistical analysis with confidence intervals
+- Results saved to `tests/standalone/statistical_validation_results.json`
+
+**Expected format** for API response files:
+```json
+{
+  "Albert Einstein": [
+    {"id": "A123", "display_name": "Albert Einstein", ...},
+    ...
+  ],
+  "Marie Curie": [...],
+  ...
+}
+```
+
 ## Expected Output
 
 ```
@@ -132,6 +177,13 @@ Populates Elasticsearch with real author data from OpenAlex API:
 
 ### `test_real_ranking_comparison.py`
 Real-world ranking validation against OpenAlex API (requires ES)
+
+### `test_statistical_validation.py`
+Statistical validation against saved production OpenAlex API responses:
+- Validates with YOUR real API artifacts (30+ queries)
+- Tests empty query consistency
+- Computes Kendall's Tau, NDCG, exact match rate, top-k overlap
+- Adjusted thresholds for same-source corpus (SciSciNet v2 from OpenAlex)
 
 ## Quick Start
 
