@@ -77,6 +77,84 @@ python tests/standalone/test_statistical_validation.py --responses-dir=data/api_
 }
 ```
 
+### 4. End-to-End Reproducible Test (Fully Self-Contained)
+
+**Purpose:** Validates the complete workflow from scratch using sample data. Proves the system works without manual intervention.
+
+**Location:** `tests/standalone/test_run/test_end_to_end_validation.py`
+
+**What it does:**
+```bash
+pytest tests/standalone/test_run/test_end_to_end_validation.py -v -s
+```
+
+This test is **fully self-contained** and executes the complete workflow:
+
+1. **Detects if Elasticsearch is running**
+   - If not running: Automatically calls `./setup_elasticsearch.sh`
+   - If running: Skips setup and continues
+   - Creates authors-v16 index with proper mappings
+
+2. **Indexes sample authors from parquet**
+   - Uses `scripts/build_author_index_from_parquet.py --parquet-file`
+   - Indexes 8 real OpenAlex authors from `fixtures/sample_authors_details.parquet`
+   - Real data fetched from OpenAlex API (2024-12-24)
+
+3. **Runs statistical validation**
+   - Imports and executes `test_statistical_validation.py` (same code you'll use!)
+   - Uses sample fixtures from `test_run/fixtures/1640000000.json`
+   - 4 queries: Albert Einstein, Marie Curie, Richard Feynman, empty query
+
+4. **Generates comprehensive reports**
+   - `test_run/reports/end_to_end_validation_report.json`
+   - `tests/standalone/statistical_validation_results.json`
+
+**Expected Results (with sample data):**
+```
+Total queries tested:    4
+Valid comparisons:       3
+
+Exact match rate:        0.00%  (expected - corpus timing differences)
+Kendall's Tau:           1.0000 (perfect rank correlation!)
+Top-10 overlap:          47.78% (partial overlap)
+NDCG@10:                 0.5533
+
+Empty Query Consistency:
+  Both empty:            1 ✓ (perfect)
+
+Temporal Consistency:
+  Duplicate queries:     4
+  Perfectly consistent:  4 ✓
+```
+
+**What this proves:**
+✅ Setup scripts work from scratch
+✅ Parquet indexing works correctly
+✅ Statistical validation code runs successfully
+✅ All components integrate properly
+✅ Zero manual setup required
+
+**What this does NOT prove:**
+❌ Your full SciSciNet dataset will index successfully (only tested with 8 authors)
+❌ Your specific 30+ API fixtures will work (uses sample fixtures)
+❌ Performance with large datasets (millions of authors)
+❌ Edge cases in your specific data
+
+**Recommendation:** After the e2e test passes, validate with YOUR data:
+1. Index your full `authors_details.parquet` (may take time with 100M+ authors)
+2. Put your 30+ fixtures in `data/api_responses/`
+3. Run: `python tests/standalone/test_statistical_validation.py --responses-dir=data/api_responses`
+
+**Critical Assessment:**
+
+The e2e test uses **sample data** to prove the workflow works, but your production data may have:
+- Different schema edge cases
+- Queries for authors not in your dataset
+- Performance issues at scale
+- Unexpected JSON formats
+
+**Trust level:** The e2e test validates that all scripts integrate correctly and the validation logic works. However, the metrics you get with YOUR data will likely differ significantly from the sample results. The test proves the *system works*, not that *your specific results will be good*.
+
 ## Expected Output
 
 ```
@@ -184,6 +262,15 @@ Statistical validation against saved production OpenAlex API responses:
 - Tests empty query consistency
 - Computes Kendall's Tau, NDCG, exact match rate, top-k overlap
 - Adjusted thresholds for same-source corpus (SciSciNet v2 from OpenAlex)
+
+### `test_run/test_end_to_end_validation.py`
+Fully self-contained end-to-end test:
+- Automatically sets up Elasticsearch from scratch
+- Indexes 8 real OpenAlex authors from sample parquet
+- Runs statistical validation with sample fixtures
+- Proves complete workflow works without manual intervention
+- **NOTE:** Uses sample data (8 authors, 4 queries) - your production data may behave differently
+- Run with: `pytest tests/standalone/test_run/test_end_to_end_validation.py -v -s`
 
 ## Quick Start
 
