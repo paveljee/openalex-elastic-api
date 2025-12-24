@@ -16,8 +16,10 @@ Handles format:
 Features:
 - Loads from multiple timestamp files
 - Handles duplicate queries (temporal consistency check)
+- Tests empty query consistency (API empty → local empty?)
 - Computes comprehensive ranking metrics
 - Statistical analysis with confidence intervals
+- Adjusted thresholds for same-source corpus (SciSciNet v2 from OpenAlex)
 """
 import sys
 sys.path.insert(0, '/home/user/openalex-elastic-api')
@@ -352,8 +354,15 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
         'ndcg_10': [],
     }
 
-    skipped_empty = 0
-    skipped_no_results = 0
+    # Track empty query behavior
+    empty_consistency = {
+        'both_empty': 0,        # API and local both return empty
+        'api_only_empty': 0,    # API empty, local has results
+        'local_only_empty': 0,  # Local empty, API has results
+        'total_api_empty': 0    # Total queries where API returned empty
+    }
+
+    skipped_no_results = 0  # Both API and local empty (nothing to compare)
     errors = 0
 
     # Process each query
@@ -372,19 +381,34 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
         selected_entry = select_query_version(entries)
         results = selected_entry['results']
 
-        # Skip empty results
-        if len(results) == 0:
-            skipped_empty += 1
-            continue
-
         # Extract API ranking
         api_ids = extract_ranking_from_results(results)
 
-        # Query our extracted logic
+        # Always query our local implementation, even for empty API results
         extracted_ids = query_extracted_logic(query, limit=25)
 
-        if len(extracted_ids) == 0:
-            skipped_no_results += 1
+        # Track empty query behavior
+        api_empty = len(api_ids) == 0
+        local_empty = len(extracted_ids) == 0
+
+        if api_empty:
+            empty_consistency['total_api_empty'] += 1
+
+            if local_empty:
+                # Both empty - good consistency!
+                empty_consistency['both_empty'] += 1
+                skipped_no_results += 1
+                continue
+            else:
+                # API empty but local has results - potential issue
+                empty_consistency['api_only_empty'] += 1
+                # Skip comparison (can't compare with empty)
+                continue
+
+        if local_empty:
+            # Local empty but API has results - potential issue
+            empty_consistency['local_only_empty'] += 1
+            # Skip comparison (can't compare with empty)
             continue
 
         # Compute all metrics
@@ -408,9 +432,29 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
 
     print(f"\n✓ Processed all queries")
     print(f"  Valid comparisons:     {len(metrics['exact_match'])}")
-    print(f"  Skipped (empty API):   {skipped_empty}")
-    print(f"  Skipped (no ES match): {skipped_no_results}")
+    print(f"  Both empty (skipped):  {skipped_no_results}")
     print()
+
+    # Report on empty query consistency
+    if empty_consistency['total_api_empty'] > 0:
+        print("=" * 80)
+        print("EMPTY QUERY CONSISTENCY")
+        print("=" * 80)
+        print()
+        print(f"Total API empty queries: {empty_consistency['total_api_empty']}")
+        print(f"  Both empty:            {empty_consistency['both_empty']} ✓")
+        print(f"  API empty, local has:  {empty_consistency['api_only_empty']}")
+        print(f"  Local empty, API has:  {empty_consistency['local_only_empty']}")
+
+        if empty_consistency['both_empty'] == empty_consistency['total_api_empty']:
+            print(f"\n✅ Perfect empty consistency! Local also returns empty for all API-empty queries.")
+        elif empty_consistency['api_only_empty'] > 0:
+            print(f"\n⚠️  Local returns results for {empty_consistency['api_only_empty']} queries that were empty in API")
+            print(f"    This could indicate different corpus content")
+        print()
+    else:
+        print("No empty API queries found")
+        print()
 
     # Check if we have enough data
     if len(metrics['exact_match']) == 0:
@@ -480,46 +524,53 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
     # Interpretation
     print("INTERPRETATION:")
     print()
+    print("NOTE: Since local corpus uses SciSciNet v2 (from OpenAlex, same data source),")
+    print("      we expect very high metrics. Lower values indicate dump version differences.")
+    print()
 
-    if exact_match_rate >= 80:
-        print("✅ EXCELLENT: >80% exact match rate")
-        print("   Algorithm produces nearly identical rankings")
+    # Adjusted thresholds for same-source corpus (SciSciNet v2 from OpenAlex)
+    if exact_match_rate >= 70:
+        print("✅ EXCELLENT: ≥70% exact match rate")
+        print("   Algorithm produces nearly identical rankings on same-source corpus")
     elif exact_match_rate >= 50:
-        print("✅ VERY GOOD: 50-80% exact match rate")
-        print("   Minor corpus-dependent differences (expected)")
-    elif exact_match_rate >= 20:
-        print("⚠️  MODERATE: 20-50% exact match rate")
-        print("   Significant corpus differences affecting ranking")
+        print("✅ GOOD: 50-70% exact match rate")
+        print("   Minor differences due to dump version timing")
+    elif exact_match_rate >= 30:
+        print("⚠️  MODERATE: 30-50% exact match rate")
+        print("   Noticeable differences - possible corpus update lag")
     else:
-        print("❌ LOW: <20% exact match rate")
-        print("   Check implementation or corpus size")
+        print("❌ LOW: <30% exact match rate")
+        print("   Unexpected for same-source data - check corpus or implementation")
 
     print()
 
-    if kendall >= 0.9:
-        print("✅ EXCELLENT: Kendall's Tau ≥ 0.9")
-        print("   Very strong rank correlation")
+    if kendall >= 0.95:
+        print("✅ EXCELLENT: Kendall's Tau ≥ 0.95")
+        print("   Near-perfect rank correlation (expected for same source)")
+    elif kendall >= 0.85:
+        print("✅ GOOD: Kendall's Tau 0.85-0.95")
+        print("   Strong rank correlation - minor dump version effects")
     elif kendall >= 0.7:
-        print("✅ GOOD: Kendall's Tau 0.7-0.9")
-        print("   Strong rank correlation - algorithm is correct")
-    elif kendall >= 0.5:
-        print("⚠️  MODERATE: Kendall's Tau 0.5-0.7")
-        print("   Moderate rank correlation")
+        print("⚠️  MODERATE: Kendall's Tau 0.7-0.85")
+        print("   Moderate correlation - investigate corpus differences")
     else:
-        print("❌ WEAK: Kendall's Tau < 0.5")
-        print("   Low rank correlation - check implementation")
+        print("❌ WEAK: Kendall's Tau < 0.7")
+        print("   Unexpected for same-source data - check implementation")
 
     print()
 
     if top10_overlap >= 90:
         print("✅ EXCELLENT: Top-10 overlap ≥ 90%")
-    elif top10_overlap >= 70:
-        print("✅ GOOD: Top-10 overlap ≥ 70%")
-        print("   Most relevant results preserved")
-    elif top10_overlap >= 50:
-        print("⚠️  MODERATE: Top-10 overlap 50-70%")
+        print("   Expected for same-source corpus")
+    elif top10_overlap >= 80:
+        print("✅ GOOD: Top-10 overlap 80-90%")
+        print("   Good preservation of top results")
+    elif top10_overlap >= 65:
+        print("⚠️  MODERATE: Top-10 overlap 65-80%")
+        print("   Some divergence in top results")
     else:
-        print("❌ LOW: Top-10 overlap < 50%")
+        print("❌ LOW: Top-10 overlap < 65%")
+        print("   Unexpected for same-source data")
 
     print()
     print("=" * 80)
@@ -530,11 +581,11 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
         json.dump({
             'summary': results_summary,
             'temporal_consistency': temporal_stats,
+            'empty_consistency': empty_consistency,
             'raw_metrics': {k: [float(v) for v in vals] for k, vals in metrics.items()},
             'metadata': {
                 'total_queries': len(all_queries),
                 'valid_comparisons': len(metrics['exact_match']),
-                'skipped_empty': skipped_empty,
                 'skipped_no_results': skipped_no_results,
             }
         }, f, indent=2)
@@ -548,11 +599,15 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
     if sample_size < 10:
         print(f"⚠️  Small sample size (n={sample_size}) - results may not be statistically significant")
         print("   Consider collecting more API responses for robust validation")
-        # Don't assert with small samples
+        # Don't assert with small samples, just warn if metrics are unexpectedly low
+        if kendall < 0.7:
+            print(f"⚠️  WARNING: Low Kendall's Tau ({kendall:.4f}) - unexpected for same-source corpus")
+        if top10_overlap < 65:
+            print(f"⚠️  WARNING: Low top-10 overlap ({top10_overlap:.2f}%) - unexpected for same-source corpus")
     else:
-        # With larger samples, expect good correlation
-        assert kendall >= 0.5, f"Kendall's Tau too low: {kendall:.4f} < 0.5"
-        assert top10_overlap >= 50, f"Top-10 overlap too low: {top10_overlap:.2f}% < 50%"
+        # With larger samples, expect high correlation for same-source corpus (SciSciNet from OpenAlex)
+        assert kendall >= 0.7, f"Kendall's Tau too low for same-source corpus: {kendall:.4f} < 0.7"
+        assert top10_overlap >= 65, f"Top-10 overlap too low for same-source corpus: {top10_overlap:.2f}% < 65%"
 
     return True
 
