@@ -1,7 +1,11 @@
 """
 STATISTICAL VALIDATION TEST: Real OpenAlex API Responses
 
-Validates the extracted ranking algorithm against actual OpenAlex API responses.
+Validates that the extracted algorithm returns the SAME SET OF AUTHORS as OpenAlex API.
+
+**Focus:** Set comparison (which authors are returned), NOT ranking order.
+**Rationale:** Custom ranking will be implemented separately. We only validate that
+our matching/retrieval logic finds the same authors as the production API.
 
 Handles format:
 {
@@ -17,7 +21,7 @@ Features:
 - Loads from multiple timestamp files
 - Handles duplicate queries (temporal consistency check)
 - Tests empty query consistency (API empty → local empty?)
-- Computes comprehensive ranking metrics
+- Computes SET-BASED metrics (precision, recall, F1, Jaccard)
 - Statistical analysis with confidence intervals
 - Adjusted thresholds for same-source corpus (SciSciNet v2 from OpenAlex)
 """
@@ -29,110 +33,107 @@ import os
 from pathlib import Path
 from collections import defaultdict
 import numpy as np
-from scipy.stats import kendalltau, spearmanr
 from elasticsearch_dsl import Search, connections
 
 from core.author_matching import build_author_search_query
 from settings import AUTHORS_INDEX, ES_URL
 
 
-# Metrics Computation
-def compute_exact_match(api_ids, extracted_ids):
-    """Check if rankings are exactly identical"""
-    return api_ids == extracted_ids
+# SET-BASED Metrics Computation (order-independent)
+def compute_exact_set_match(api_ids, extracted_ids):
+    """Check if the SETS of IDs are identical (order-independent)"""
+    return set(api_ids) == set(extracted_ids)
 
 
-def compute_top_k_overlap(api_ids, extracted_ids, k):
-    """Compute overlap in top-k results"""
-    if len(api_ids) < k or len(extracted_ids) < k:
-        k = min(len(api_ids), len(extracted_ids))
-
-    if k == 0:
-        return 0.0
-
-    api_top_k = set(api_ids[:k])
-    extracted_top_k = set(extracted_ids[:k])
-
-    overlap = len(api_top_k & extracted_top_k)
-    return overlap / k
-
-
-def compute_kendall_tau(api_ids, extracted_ids):
+def compute_recall(api_ids, extracted_ids):
     """
-    Kendall's Tau: Measures rank correlation (-1 to 1)
+    Recall: What fraction of API authors did we find?
 
-    1.0 = perfect agreement
-    0.0 = no correlation
-    -1.0 = perfect disagreement
+    Recall = |API ∩ Extracted| / |API|
+
+    1.0 = we found all API authors
+    0.0 = we found none of the API authors
     """
-    common_ids = set(api_ids) & set(extracted_ids)
-    if len(common_ids) < 2:
-        return None
+    if len(api_ids) == 0:
+        return 1.0 if len(extracted_ids) == 0 else 0.0
 
-    api_ranks = {id: i for i, id in enumerate(api_ids) if id in common_ids}
-    extracted_ranks = {id: i for i, id in enumerate(extracted_ids) if id in common_ids}
+    api_set = set(api_ids)
+    extracted_set = set(extracted_ids)
+    intersection = api_set & extracted_set
 
-    common_list = list(common_ids)
-    api_rank_array = [api_ranks[id] for id in common_list]
-    extracted_rank_array = [extracted_ranks[id] for id in common_list]
-
-    tau, p_value = kendalltau(api_rank_array, extracted_rank_array)
-    return tau
+    return len(intersection) / len(api_set)
 
 
-def compute_spearman_rho(api_ids, extracted_ids):
-    """Spearman's Rho: Measures monotonic relationship (-1 to 1)"""
-    common_ids = set(api_ids) & set(extracted_ids)
-    if len(common_ids) < 2:
-        return None
+def compute_precision(api_ids, extracted_ids):
+    """
+    Precision: What fraction of our results are in the API results?
 
-    api_ranks = {id: i for i, id in enumerate(api_ids) if id in common_ids}
-    extracted_ranks = {id: i for i, id in enumerate(extracted_ids) if id in common_ids}
+    Precision = |API ∩ Extracted| / |Extracted|
 
-    common_list = list(common_ids)
-    api_rank_array = [api_ranks[id] for id in common_list]
-    extracted_rank_array = [extracted_ranks[id] for id in common_list]
+    1.0 = all our results are in API
+    0.0 = none of our results are in API
+    """
+    if len(extracted_ids) == 0:
+        return 1.0 if len(api_ids) == 0 else 0.0
 
-    rho, p_value = spearmanr(api_rank_array, extracted_rank_array)
-    return rho
+    api_set = set(api_ids)
+    extracted_set = set(extracted_ids)
+    intersection = api_set & extracted_set
+
+    return len(intersection) / len(extracted_set)
 
 
-def compute_mrr(api_ids, extracted_ids):
-    """Mean Reciprocal Rank: How quickly does first API result appear in extracted?"""
-    if len(api_ids) == 0 or len(extracted_ids) == 0:
+def compute_f1_score(api_ids, extracted_ids):
+    """
+    F1 Score: Harmonic mean of precision and recall
+
+    F1 = 2 * (Precision * Recall) / (Precision + Recall)
+
+    1.0 = perfect precision AND recall
+    0.0 = no overlap
+    """
+    precision = compute_precision(api_ids, extracted_ids)
+    recall = compute_recall(api_ids, extracted_ids)
+
+    if precision + recall == 0:
         return 0.0
 
-    first_api_id = api_ids[0]
-
-    try:
-        position = extracted_ids.index(first_api_id)
-        return 1.0 / (position + 1)
-    except ValueError:
-        return 0.0
+    return 2 * (precision * recall) / (precision + recall)
 
 
-def compute_ndcg(api_ids, extracted_ids, k=10):
-    """Normalized Discounted Cumulative Gain @ k"""
-    if len(api_ids) == 0 or len(extracted_ids) == 0:
-        return 0.0
+def compute_jaccard_similarity(api_ids, extracted_ids):
+    """
+    Jaccard Similarity: Size of intersection / size of union
 
-    k = min(k, len(extracted_ids))
-    api_top_k = set(api_ids[:k])
+    Jaccard = |API ∩ Extracted| / |API ∪ Extracted|
 
-    # Compute DCG for extracted ranking
-    dcg = 0.0
-    for i, id in enumerate(extracted_ids[:k]):
-        if id in api_top_k:
-            relevance = 1.0
-            dcg += relevance / np.log2(i + 2)
+    1.0 = perfect match
+    0.0 = no overlap
+    """
+    api_set = set(api_ids)
+    extracted_set = set(extracted_ids)
 
-    # Compute IDCG (ideal DCG)
-    idcg = sum(1.0 / np.log2(i + 2) for i in range(min(k, len(api_top_k))))
+    intersection = api_set & extracted_set
+    union = api_set | extracted_set
 
-    if idcg == 0:
-        return 0.0
+    if len(union) == 0:
+        return 1.0  # Both empty
 
-    return dcg / idcg
+    return len(intersection) / len(union)
+
+
+def compute_set_size_ratio(api_ids, extracted_ids):
+    """
+    Set Size Ratio: |Extracted| / |API|
+
+    1.0 = same number of results
+    >1.0 = we returned more results
+    <1.0 = we returned fewer results
+    """
+    if len(api_ids) == 0:
+        return 0.0 if len(extracted_ids) == 0 else float('inf')
+
+    return len(extracted_ids) / len(api_ids)
 
 
 # Response Parsing
@@ -340,18 +341,14 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
 
     print()
 
-    # Initialize metrics storage
+    # Initialize SET-BASED metrics storage (order-independent)
     metrics = {
-        'exact_match': [],
-        'top_1_overlap': [],
-        'top_3_overlap': [],
-        'top_5_overlap': [],
-        'top_10_overlap': [],
-        'top_20_overlap': [],
-        'kendall_tau': [],
-        'spearman_rho': [],
-        'mrr': [],
-        'ndcg_10': [],
+        'exact_set_match': [],      # Do both return exactly the same set of authors?
+        'recall': [],                # What % of API authors did we find?
+        'precision': [],             # What % of our results are correct (in API)?
+        'f1_score': [],              # Harmonic mean of precision & recall
+        'jaccard_similarity': [],    # Intersection / Union
+        'set_size_ratio': [],        # Our count / API count
     }
 
     # Track empty query behavior
@@ -367,10 +364,12 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
 
     # Process each query
     print("=" * 80)
-    print("RANKING COMPARISON")
+    print("SET COMPARISON (ORDER-INDEPENDENT)")
     print("=" * 80)
     print()
-    print("Computing ranking metrics...")
+    print("Computing set-based metrics...")
+    print("NOTE: We validate that our algorithm returns the SAME AUTHORS as API,")
+    print("      regardless of ranking order (custom ranking implemented separately).")
     print()
 
     for i, (query, entries) in enumerate(all_queries.items()):
@@ -411,27 +410,19 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
             # Skip comparison (can't compare with empty)
             continue
 
-        # Compute all metrics
-        metrics['exact_match'].append(1.0 if compute_exact_match(api_ids, extracted_ids) else 0.0)
-        metrics['top_1_overlap'].append(compute_top_k_overlap(api_ids, extracted_ids, 1))
-        metrics['top_3_overlap'].append(compute_top_k_overlap(api_ids, extracted_ids, 3))
-        metrics['top_5_overlap'].append(compute_top_k_overlap(api_ids, extracted_ids, 5))
-        metrics['top_10_overlap'].append(compute_top_k_overlap(api_ids, extracted_ids, 10))
-        metrics['top_20_overlap'].append(compute_top_k_overlap(api_ids, extracted_ids, 20))
+        # Compute SET-BASED metrics (order-independent)
+        metrics['exact_set_match'].append(1.0 if compute_exact_set_match(api_ids, extracted_ids) else 0.0)
+        metrics['recall'].append(compute_recall(api_ids, extracted_ids))
+        metrics['precision'].append(compute_precision(api_ids, extracted_ids))
+        metrics['f1_score'].append(compute_f1_score(api_ids, extracted_ids))
+        metrics['jaccard_similarity'].append(compute_jaccard_similarity(api_ids, extracted_ids))
 
-        tau = compute_kendall_tau(api_ids, extracted_ids)
-        if tau is not None:
-            metrics['kendall_tau'].append(tau)
-
-        rho = compute_spearman_rho(api_ids, extracted_ids)
-        if rho is not None:
-            metrics['spearman_rho'].append(rho)
-
-        metrics['mrr'].append(compute_mrr(api_ids, extracted_ids))
-        metrics['ndcg_10'].append(compute_ndcg(api_ids, extracted_ids, k=10))
+        size_ratio = compute_set_size_ratio(api_ids, extracted_ids)
+        if size_ratio != float('inf'):
+            metrics['set_size_ratio'].append(size_ratio)
 
     print(f"\n✓ Processed all queries")
-    print(f"  Valid comparisons:     {len(metrics['exact_match'])}")
+    print(f"  Valid comparisons:     {len(metrics['exact_set_match'])}")
     print(f"  Both empty (skipped):  {skipped_no_results}")
     print()
 
@@ -457,7 +448,7 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
         print()
 
     # Check if we have enough data
-    if len(metrics['exact_match']) == 0:
+    if len(metrics['exact_set_match']) == 0:
         print("❌ No valid comparisons could be made!")
         print("\nPossible issues:")
         print("  - Elasticsearch not running")
@@ -505,72 +496,79 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
 
     # Overall assessment
     print("=" * 80)
-    print("OVERALL ASSESSMENT")
+    print("OVERALL ASSESSMENT (SET COMPARISON - ORDER INDEPENDENT)")
     print("=" * 80)
     print()
 
-    exact_match_rate = results_summary['exact_match']['mean'] * 100
-    top10_overlap = results_summary['top_10_overlap']['mean'] * 100
-    kendall = results_summary['kendall_tau']['mean']
-    ndcg = results_summary['ndcg_10']['mean']
+    exact_set_match_rate = results_summary['exact_set_match']['mean'] * 100
+    recall = results_summary['recall']['mean'] * 100
+    precision = results_summary['precision']['mean'] * 100
+    f1 = results_summary['f1_score']['mean'] * 100
+    jaccard = results_summary['jaccard_similarity']['mean'] * 100
 
-    print(f"Sample size:           {len(metrics['exact_match'])} queries")
-    print(f"Exact match rate:      {exact_match_rate:.2f}%")
-    print(f"Top-10 overlap:        {top10_overlap:.2f}%")
-    print(f"Kendall's Tau:         {kendall:.4f}")
-    print(f"NDCG@10:               {ndcg:.4f}")
+    print(f"Sample size:           {len(metrics['exact_set_match'])} queries")
+    print(f"Exact set match:       {exact_set_match_rate:.2f}%  (same authors, any order)")
+    print(f"Recall:                {recall:.2f}%  (% of API authors we found)")
+    print(f"Precision:             {precision:.2f}%  (% of our results in API)")
+    print(f"F1 Score:              {f1:.2f}%  (harmonic mean)")
+    print(f"Jaccard Similarity:    {jaccard:.2f}%  (intersection/union)")
     print()
 
     # Interpretation
     print("INTERPRETATION:")
     print()
-    print("NOTE: Since local corpus uses SciSciNet v2 (from OpenAlex, same data source),")
-    print("      we expect very high metrics. Lower values indicate dump version differences.")
+    print("NOTE: We validate that our algorithm returns the SAME AUTHORS as OpenAlex API.")
+    print("      Ranking order is NOT evaluated (custom ranking implemented separately).")
+    print()
+    print("Since local corpus uses SciSciNet v2 (from OpenAlex, same data source),")
+    print("we expect very high set overlap. Lower values indicate dump version differences.")
     print()
 
-    # Adjusted thresholds for same-source corpus (SciSciNet v2 from OpenAlex)
-    if exact_match_rate >= 70:
-        print("✅ EXCELLENT: ≥70% exact match rate")
-        print("   Algorithm produces nearly identical rankings on same-source corpus")
-    elif exact_match_rate >= 50:
-        print("✅ GOOD: 50-70% exact match rate")
-        print("   Minor differences due to dump version timing")
-    elif exact_match_rate >= 30:
-        print("⚠️  MODERATE: 30-50% exact match rate")
-        print("   Noticeable differences - possible corpus update lag")
+    # Recall interpretation
+    if recall >= 95:
+        print("✅ EXCELLENT RECALL: ≥95%")
+        print("   We found nearly all authors that API returned")
+    elif recall >= 85:
+        print("✅ GOOD RECALL: 85-95%")
+        print("   We found most API authors - minor corpus differences")
+    elif recall >= 70:
+        print("⚠️  MODERATE RECALL: 70-85%")
+        print("   Missing some API authors - check corpus completeness")
     else:
-        print("❌ LOW: <30% exact match rate")
-        print("   Unexpected for same-source data - check corpus or implementation")
-
-    print()
-
-    if kendall >= 0.95:
-        print("✅ EXCELLENT: Kendall's Tau ≥ 0.95")
-        print("   Near-perfect rank correlation (expected for same source)")
-    elif kendall >= 0.85:
-        print("✅ GOOD: Kendall's Tau 0.85-0.95")
-        print("   Strong rank correlation - minor dump version effects")
-    elif kendall >= 0.7:
-        print("⚠️  MODERATE: Kendall's Tau 0.7-0.85")
-        print("   Moderate correlation - investigate corpus differences")
-    else:
-        print("❌ WEAK: Kendall's Tau < 0.7")
-        print("   Unexpected for same-source data - check implementation")
+        print("❌ LOW RECALL: <70%")
+        print("   Missing many API authors - check corpus or implementation")
 
     print()
 
-    if top10_overlap >= 90:
-        print("✅ EXCELLENT: Top-10 overlap ≥ 90%")
-        print("   Expected for same-source corpus")
-    elif top10_overlap >= 80:
-        print("✅ GOOD: Top-10 overlap 80-90%")
-        print("   Good preservation of top results")
-    elif top10_overlap >= 65:
-        print("⚠️  MODERATE: Top-10 overlap 65-80%")
-        print("   Some divergence in top results")
+    # Precision interpretation
+    if precision >= 95:
+        print("✅ EXCELLENT PRECISION: ≥95%")
+        print("   Nearly all our results match API")
+    elif precision >= 85:
+        print("✅ GOOD PRECISION: 85-95%")
+        print("   Most our results match API - minor differences")
+    elif precision >= 70:
+        print("⚠️  MODERATE PRECISION: 70-85%")
+        print("   Some extra authors not in API - check query logic")
     else:
-        print("❌ LOW: Top-10 overlap < 65%")
-        print("   Unexpected for same-source data")
+        print("❌ LOW PRECISION: <70%")
+        print("   Many extra authors not in API - check implementation")
+
+    print()
+
+    # F1 Score interpretation
+    if f1 >= 95:
+        print("✅ EXCELLENT F1: ≥95%")
+        print("   Near-perfect set match (expected for same source)")
+    elif f1 >= 85:
+        print("✅ GOOD F1: 85-95%")
+        print("   Strong set match - minor corpus differences")
+    elif f1 >= 70:
+        print("⚠️  MODERATE F1: 70-85%")
+        print("   Moderate set match - investigate differences")
+    else:
+        print("❌ LOW F1: <70%")
+        print("   Poor set match - check corpus or implementation")
 
     print()
     print("=" * 80)
@@ -586,7 +584,7 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
             'raw_metrics': {k: [float(v) for v in vals] for k, vals in metrics.items()},
             'metadata': {
                 'total_queries': len(all_queries),
-                'valid_comparisons': len(metrics['exact_match']),
+                'valid_comparisons': len(metrics['exact_set_match']),
                 'skipped_no_results': skipped_no_results,
             }
         }, f, indent=2)
@@ -595,20 +593,23 @@ def test_statistical_validation_real_responses(responses_dir="data/api_responses
     print()
 
     # Test assertion - be lenient with small sample sizes
-    sample_size = len(metrics['exact_match'])
+    sample_size = len(metrics['exact_set_match'])
 
     if sample_size < 10:
         print(f"⚠️  Small sample size (n={sample_size}) - results may not be statistically significant")
         print("   Consider collecting more API responses for robust validation")
         # Don't assert with small samples, just warn if metrics are unexpectedly low
-        if kendall < 0.7:
-            print(f"⚠️  WARNING: Low Kendall's Tau ({kendall:.4f}) - unexpected for same-source corpus")
-        if top10_overlap < 65:
-            print(f"⚠️  WARNING: Low top-10 overlap ({top10_overlap:.2f}%) - unexpected for same-source corpus")
+        if recall < 70:
+            print(f"⚠️  WARNING: Low recall ({recall:.2f}%) - unexpected for same-source corpus")
+        if precision < 70:
+            print(f"⚠️  WARNING: Low precision ({precision:.2f}%) - unexpected for same-source corpus")
+        if f1 < 70:
+            print(f"⚠️  WARNING: Low F1 score ({f1:.2f}%) - unexpected for same-source corpus")
     else:
-        # With larger samples, expect high correlation for same-source corpus (SciSciNet from OpenAlex)
-        assert kendall >= 0.7, f"Kendall's Tau too low for same-source corpus: {kendall:.4f} < 0.7"
-        assert top10_overlap >= 65, f"Top-10 overlap too low for same-source corpus: {top10_overlap:.2f}% < 65%"
+        # With larger samples, expect high set overlap for same-source corpus (SciSciNet from OpenAlex)
+        assert recall >= 70, f"Recall too low for same-source corpus: {recall:.2f}% < 70%"
+        assert precision >= 70, f"Precision too low for same-source corpus: {precision:.2f}% < 70%"
+        assert f1 >= 70, f"F1 score too low for same-source corpus: {f1:.2f}% < 70%"
 
     return True
 

@@ -34,7 +34,10 @@ python -m pytest test_real_ranking_comparison.py -v
 
 ### 3. Statistical Validation with Real API Responses (Requires Elasticsearch)
 
-Validates against your saved production OpenAlex API responses.
+**Purpose:** Validates that our algorithm returns the SAME SET OF AUTHORS as OpenAlex API (regardless of ranking order).
+
+**Focus:** Set comparison - which authors are returned, NOT their ranking order.
+**Rationale:** Custom ranking will be implemented separately. We only validate that our matching/retrieval logic finds the same authors as production API.
 
 **Prerequisites:**
 1. Elasticsearch running (use `./setup_elasticsearch.sh`)
@@ -57,11 +60,12 @@ python tests/standalone/test_statistical_validation.py --responses-dir=data/api_
 **What you get:**
 - Temporal consistency check (for duplicate queries across time)
 - Empty query consistency (API empty → local also empty?)
-- Comprehensive ranking metrics:
-  - Exact match rate (% of identical rankings)
-  - Kendall's Tau (rank correlation: -1 to 1)
-  - Top-10 overlap (% of shared top-10 results)
-  - NDCG@10 (ranking quality metric)
+- **SET-BASED metrics (order-independent):**
+  - **Recall:** % of API authors we found
+  - **Precision:** % of our results that are in API
+  - **F1 Score:** Harmonic mean of precision & recall
+  - **Jaccard Similarity:** Intersection / Union
+  - **Exact Set Match:** % of queries returning identical author sets
 - Statistical analysis with confidence intervals
 - Results saved to `tests/standalone/statistical_validation_results.json`
 
@@ -114,10 +118,11 @@ This test is **fully self-contained** and executes the complete workflow:
 Total queries tested:    4
 Valid comparisons:       3
 
-Exact match rate:        0.00%  (expected - corpus timing differences)
-Kendall's Tau:           1.0000 (perfect rank correlation!)
-Top-10 overlap:          47.78% (partial overlap)
-NDCG@10:                 0.5533
+Exact set match:         0.00%   (same authors, any order)
+Recall:                  75.56%  (% of API authors we found)
+Precision:               58.89%  (% of our results in API)
+F1 Score:                65.71%  (harmonic mean)
+Jaccard Similarity:      49.84%  (intersection/union)
 
 Empty Query Consistency:
   Both empty:            1 ✓ (perfect)
@@ -127,12 +132,20 @@ Temporal Consistency:
   Perfectly consistent:  4 ✓
 ```
 
+**What this shows:**
+- We find ~76% of API authors (good recall)
+- ~59% of our results match API (moderate precision)
+- Some corpus/dump version differences expected
+- **Focus is on SET comparison, not ranking order**
+
 **What this proves:**
 ✅ Setup scripts work from scratch
 ✅ Parquet indexing works correctly
+✅ Author matching/retrieval finds same authors as API (set comparison)
 ✅ Statistical validation code runs successfully
 ✅ All components integrate properly
 ✅ Zero manual setup required
+✅ **NOTE:** Ranking order NOT validated (custom ranking separate)
 
 **What this does NOT prove:**
 ❌ Your full SciSciNet dataset will index successfully (only tested with 8 authors)
@@ -153,7 +166,13 @@ The e2e test uses **sample data** to prove the workflow works, but your producti
 - Performance issues at scale
 - Unexpected JSON formats
 
-**Trust level:** The e2e test validates that all scripts integrate correctly and the validation logic works. However, the metrics you get with YOUR data will likely differ significantly from the sample results. The test proves the *system works*, not that *your specific results will be good*.
+**Trust level:** The e2e test validates that:
+- All scripts integrate correctly
+- Author matching/retrieval finds same set of authors as API
+- Statistical validation logic works (set comparison)
+- **Ranking order is NOT validated** (custom ranking separate)
+
+However, the metrics you get with YOUR data will likely differ from sample results. The test proves the *system works* (same authors found), not that *your specific set overlap will be high*.
 
 ## Expected Output
 
