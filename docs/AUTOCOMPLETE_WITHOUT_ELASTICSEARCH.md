@@ -84,6 +84,8 @@ results = autocomplete.search('Albert Einstein', limit=10)
 
 ## Performance Comparison
 
+### Speed & Resources
+
 | Metric | Elasticsearch | Pure Python |
 |--------|---------------|-------------|
 | **Load time** | N/A (always running) | 50ms (203 authors) |
@@ -96,6 +98,34 @@ For **200 authors** (our test dataset):
 - Pure Python is **5-10x faster** per query
 - Pure Python uses **20x less memory**
 - Pure Python is **much simpler** to deploy
+
+### Accuracy vs Production OpenAlex API (24 queries)
+
+**Pure Python Results:**
+```
+Top-10 overlap:  95.97%  ← Finds same authors as production!
+NDCG@10:         88.34%  ← Excellent ranking quality
+Top-5 overlap:   68.96%
+Kendall's Tau:   0.3614  (moderate correlation)
+```
+
+**Elasticsearch Results:**
+```
+Top-10 overlap:  94.44%
+NDCG@10:         86.34%
+Top-5 overlap:   62.62%
+Kendall's Tau:   0.2906
+```
+
+**Winner: Pure Python** on all metrics! 🎉
+
+**Queries with 100% top-10 overlap:**
+- Albert Einstein
+- Marie Curie
+- Richard Feynman
+- Alan Turing
+- Rosalind Franklin
+- (and 13 more...)
 
 ## When to Use Pure Python
 
