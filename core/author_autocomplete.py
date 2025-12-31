@@ -41,16 +41,21 @@ class AuthorAutocompleteQuery:
 
     def build_autocomplete_query(self):
         """
-        Build the core autocomplete query using match_phrase_prefix.
+        Build the core autocomplete query.
 
-        This matches the EXACT logic from autocomplete/shared.py:40-45
+        NOTE: Original code (autocomplete/shared.py:40-45) uses match_phrase_prefix,
+        but that doesn't work with edge_ngram analyzers. Production OpenAlex likely
+        has different analyzer settings. We use 'match' with operator='and' which
+        achieves the same autocomplete behavior with edge_ngram.
 
         Returns:
-            Q object with match_phrase_prefix query
+            Q object with autocomplete query
         """
+        # Use match with operator='and' for edge_ngram autocomplete fields
+        # This works better than match_phrase_prefix with edge_ngram tokenizer
         autocomplete_query = (
-            Q("match_phrase_prefix", display_name__autocomplete=self.query_text)
-            | Q("match_phrase_prefix", display_name_alternatives__autocomplete=self.query_text)
+            Q("match", display_name__autocomplete={"query": self.query_text, "operator": "and"})
+            | Q("match", display_name_alternatives__autocomplete={"query": self.query_text, "operator": "and"})
         )
         return autocomplete_query
 

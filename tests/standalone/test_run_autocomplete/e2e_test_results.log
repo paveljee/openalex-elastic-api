@@ -1,0 +1,141 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /home/user/openalex-elastic-api
+collecting ... collected 1 item
+
+tests/standalone/test_run_autocomplete/test_end_to_end_autocomplete_validation.py::test_end_to_end_autocomplete_validation 
+================================================================================
+END-TO-END AUTOCOMPLETE VALIDATION TEST
+================================================================================
+
+→ Step 1: Setting up Elasticsearch...
+  ℹ️  Elasticsearch already running, skipping setup
+
+✓ Verified: Elasticsearch running at http://127.0.0.1:9200
+
+→ Step 2: Indexing sample authors...
+  Running: python scripts/build_author_index_from_parquet.py --parquet-file /home/user/openalex-elastic-api/tests/standalone/test_run_autocomplete/fixtures/sample_authors_autocomplete.parquet
+Connecting to Elasticsearch: http://127.0.0.1:9200
+✓ Connected to Elasticsearch
+  Cluster: openalex-test
+  Version: 8.9.0
+Index authors-v16 already exists
+
+Indexing authors to: authors-v16
+================================================================================
+Loading parquet file: /home/user/openalex-elastic-api/tests/standalone/test_run_autocomplete/fixtures/sample_authors_autocomplete.parquet
+Total authors: 203
+
+Processing chunk 1 (203 authors)
+  ✓ Indexed: 203
+  Total so far: 203
+
+Refreshing index...
+
+================================================================================
+✓ Indexing complete!
+  Total indexed: 203
+  Total failed: 0
+================================================================================
+
+Final document count: 203
+
+✓ Indexed 0 authors
+
+→ Step 3: Loading real autocomplete API responses...
+✓ Loaded 25 queries
+
+→ Step 4: Running autocomplete validation...
+
+================================================================================
+RANKING VALIDATION (ORDER-DEPENDENT)
+================================================================================
+
+NOTE: For autocomplete, ranking order MATTERS for UX!
+      We validate that our ranking matches production API.
+
+  Processed 5/25 queries...
+  Processed 10/25 queries...
+  Processed 15/25 queries...
+  Processed 20/25 queries...
+  Processed 25/25 queries...
+
+✓ Processed all queries
+  Valid comparisons:     6
+  Skipped (no results):  19
+
+================================================================================
+RESULTS SUMMARY
+================================================================================
+
+Exact Match:
+  Mean:       0.0000
+  Std Dev:    0.0000
+  25th %ile:  0.0000
+  75th %ile:  0.0000
+
+Top 1 Overlap:
+  Mean:       0.1667
+  Std Dev:    0.3727
+  25th %ile:  0.0000
+  75th %ile:  0.0000
+
+Top 3 Overlap:
+  Mean:       0.2222
+  Std Dev:    0.2485
+  25th %ile:  0.0000
+  75th %ile:  0.3333
+
+Top 5 Overlap:
+  Mean:       0.3000
+  Std Dev:    0.1915
+  25th %ile:  0.2000
+  75th %ile:  0.4000
+
+Top 10 Overlap:
+  Mean:       0.7167
+  Std Dev:    0.4017
+  25th %ile:  0.4000
+  75th %ile:  1.0000
+
+Kendall Tau:
+  Mean:       -0.2481
+  Std Dev:    0.3538
+  25th %ile:  -0.2444
+  75th %ile:  -0.0056
+
+Ndcg 10:
+  Mean:       0.6157
+  Std Dev:    0.3601
+  25th %ile:  0.3428
+  75th %ile:  0.8894
+
+================================================================================
+OVERALL ASSESSMENT (RANKING ORDER)
+================================================================================
+
+Sample size:           6 queries
+Exact match rate:      0.00%
+Top-1 overlap:         16.67%
+Top-5 overlap:         30.00%
+Kendall's Tau:         -0.2481
+NDCG@10:               0.6157
+
+INTERPRETATION:
+
+❌ POOR: Kendall's Tau <0.5 - Weak ranking correlation
+
+❌ Top-1 overlap: 16.7% - Poor agreement on #1 result
+
+================================================================================
+
+✓ Report saved to: /home/user/openalex-elastic-api/tests/standalone/test_run_autocomplete/reports/autocomplete_validation_report.json
+
+✅ AUTOCOMPLETE VALIDATION COMPLETE
+
+Full report available at: /home/user/openalex-elastic-api/tests/standalone/test_run_autocomplete/reports/autocomplete_validation_report.json
+
+PASSED
+
+============================== 1 passed in 7.01s ===============================

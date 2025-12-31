@@ -31,6 +31,11 @@ AUTHOR_MAPPINGS = {
                         "type": "text",
                         "analyzer": "folding"
                     },
+                    "autocomplete": {
+                        "type": "text",
+                        "analyzer": "autocomplete_analyzer",
+                        "search_analyzer": "standard"
+                    },
                     "keyword": {
                         "type": "keyword"
                     }
@@ -42,6 +47,11 @@ AUTHOR_MAPPINGS = {
                     "folded": {
                         "type": "text",
                         "analyzer": "folding"
+                    },
+                    "autocomplete": {
+                        "type": "text",
+                        "analyzer": "autocomplete_analyzer",
+                        "search_analyzer": "standard"
                     }
                 }
             },
@@ -69,6 +79,18 @@ AUTHOR_MAPPINGS = {
                 "folding": {
                     "tokenizer": "standard",
                     "filter": ["lowercase", "asciifolding"]
+                },
+                "autocomplete_analyzer": {
+                    "tokenizer": "autocomplete_tokenizer",
+                    "filter": ["lowercase", "asciifolding"]
+                }
+            },
+            "tokenizer": {
+                "autocomplete_tokenizer": {
+                    "type": "edge_ngram",
+                    "min_gram": 1,
+                    "max_gram": 20,
+                    "token_chars": ["letter", "digit"]
                 }
             }
         },
