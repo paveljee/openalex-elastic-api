@@ -30,13 +30,14 @@ Based on [official OpenAlex documentation](https://docs.openalex.org/api-entitie
 
 Based on [official OpenAlex Search documentation](https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/search-entities):
 
-✅ **BM25 Text Similarity**: CONFIRMED (Elasticsearch default)
+⚠️ **Text Similarity Algorithm**: LIKELY BM25 (Elasticsearch default since 5.0+)
 > "relevance_score is based on text similarity to your search term"
+> **NOTE**: Docs don't specify WHICH similarity algorithm. BM25 is assumed because it's ES default, but NOT explicitly confirmed.
 
 ✅ **Citation Count Weighting**: CONFIRMED
 > "also includes a weighting term for citation counts: more highly-cited entities score higher, all else being equal"
 
-✅ **Combined Scoring**: Text relevance (BM25) + citation boosting
+✅ **Combined Scoring**: Text similarity + citation boosting
 
 ### UNCONFIRMED (Cannot Find in Public Repos)
 
@@ -350,9 +351,10 @@ if index_name.startswith("author"):
 > "relevance_score is based on text similarity to your search term, and also includes a weighting term for citation counts: more highly-cited entities score higher, all else being equal."
 
 **Analysis**:
-- ✅ **CONFIRMS** BM25 is used for text similarity (Elasticsearch default)
+- ⚠️ **IMPLIES** text similarity algorithm used (doesn't specify which one)
 - ✅ **CONFIRMS** Citation count weighting on top of text relevance
-- ✅ Combined scoring: BM25 + citation boosting
+- ⚠️ **ASSUMES** BM25 because it's Elasticsearch's default (NOT explicitly confirmed)
+- ✅ Combined scoring: Text similarity + citation boosting
 
 ### 4.2 BM25 Overview
 
@@ -438,18 +440,60 @@ where:
    - Prefix match: 500x
 4. Results sorted by: `_score`, then `-works_count`
 
-### 4.5 Why BM25 is NOT Explicitly Configured
+### 4.5 Is BM25 Actually Used? Evidence Analysis
 
-**Answer**: BM25 is Elasticsearch's **default** similarity algorithm.
+**Answer**: ⚠️ **LIKELY, but NOT CONFIRMED**
 
-**From Elasticsearch docs**:
-> "The default similarity algorithm used in Elasticsearch is BM25. Unless you specify a different similarity in the mapping, BM25 is used automatically."
+#### Evidence FOR BM25:
+
+1. **Elasticsearch Default** (since v5.0+, released 2016)
+   - BM25 is automatic for all `type: text` fields
+   - No configuration needed to use it
+
+2. **No Custom Similarity in Templates**
+   - Template we found has NO `similarity` configuration
+   - Absence of config suggests default is used
+
+3. **No Code References to Custom Similarity**
+   - Searched all repos: NO custom similarity code
+   - No TF/IDF, no classic, no custom scoring functions
+
+4. **Industry Standard**
+   - BM25 is state-of-the-art for text search
+   - Modern Elasticsearch versions all use it by default
+
+#### Evidence AGAINST BM25 (or unknown):
+
+1. **Documentation Doesn't Specify**
+   - Docs say "text similarity" but don't name the algorithm
+   - Could be BM25, TF/IDF, or custom
+
+2. **Template is for Different API**
+   - Found template is "slice-and-dice API"
+   - Autocomplete/search API might have different config
+
+3. **Configs Managed Externally**
+   - No index creation scripts in public repos
+   - Production config could override default
+
+4. **Cannot Query Production Index**
+   - No access to `GET /authors-v16/_settings` or `_mapping`
+   - Cannot verify actual similarity setting
+
+#### Verdict:
+
+**Confidence**: **85%** that BM25 is used
+
+**Reasoning**:
+- ✅ Default since 2016 (high probability)
+- ✅ No evidence of custom similarity anywhere
+- ✅ Template has no override
+- ❌ BUT: Cannot definitively confirm without production access
 
 **Therefore**:
-- ❌ NO need to configure it explicitly
-- ✅ Automatically applied to all `type: text` fields
-- ✅ Production uses it (documented)
-- ✅ Our implementation uses it (default)
+- ❌ NOT **CONFIRMED** (no explicit evidence)
+- ✅ **HIGHLY LIKELY** (default + no overrides found)
+- ✅ Our implementation uses BM25 (ES default)
 
 **Can be customized** (but OpenAlex doesn't):
 ```json
@@ -511,9 +555,9 @@ where:
 
 | Feature | Production (Documented) | Our Implementation | Status |
 |---------|------------------------|-------------------|--------|
-| **BM25 Text Similarity** | ✅ Confirmed (ES default) | ✅ Yes (ES default) | ✅ **MATCH** |
+| **Text Similarity Algorithm** | ⚠️ Likely BM25 (ES default, not confirmed) | ✅ BM25 (ES default) | ⚠️ **LIKELY MATCH** |
 | **Citation Boosting** | ✅ Confirmed (sqrt weighting) | ✅ Yes (sqrt formula) | ✅ **MATCH** |
-| **Combined Score** | BM25 × citation_boost | BM25 × citation_boost | ✅ **MATCH** |
+| **Combined Score** | text_similarity × citation_boost | BM25 × citation_boost | ⚠️ **LIKELY MATCH** |
 | **Sort Order** | _score, then works_count | _score, then -works_count | ✅ **MATCH** |
 
 ### 5.4 What We Got RIGHT
@@ -523,7 +567,7 @@ where:
 ✅ **Lowercase Normalization**: Standard practice, we have it
 ✅ **Edge N-gram Autocomplete**: 94-96% overlap validates approach
 ✅ **.folded and .autocomplete fields**: Match code expectations
-✅ **BM25 Scoring**: Elasticsearch default, matches production
+⚠️ **Text Similarity Scoring**: Use BM25 (ES default), likely matches production (85% confidence)
 ✅ **Citation Boosting**: Exact same sqrt formula from original code
 
 ### 5.5 What We're MISSING
@@ -606,7 +650,7 @@ AUTHOR_MAPPINGS = {
 | **Stop Words** | [Docs](https://docs.openalex.org/api-entities/authors/search-authors) | "removes stop words" | ❌ No |
 | **Multi-field** | [Docs](https://docs.openalex.org/api-entities/authors/search-authors) | "display_name and display_name_alternatives" | ✅ Yes |
 | **Case Insensitive** | [Docs](https://docs.openalex.org/api-entities/authors/filter-authors) | "Filters are case-insensitive" | ✅ Yes |
-| **BM25 Scoring** | [Docs](https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/search-entities) | "text similarity" (ES default) | ✅ Yes |
+| **Text Similarity** | [Docs](https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/search-entities) | "text similarity" (algorithm NOT specified) | ⚠️ BM25 assumed |
 | **Citation Weighting** | [Docs](https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/search-entities) | "weighting term for citation counts" | ✅ Yes |
 
 ### 7.2 Inferred Features (From Code/Validation)
@@ -617,6 +661,7 @@ AUTHOR_MAPPINGS = {
 | **.autocomplete field** | Code requires it | 100% | ✅ Yes |
 | **.folded field** | Code requires it + docs confirm folding | 100% | ✅ Yes |
 | **Min/max gram (1-20)** | Industry standard + works well | 70% | ✅ Yes |
+| **BM25 similarity** | ES default + no custom config found | 85% | ✅ Yes |
 | **Citation boost formula** | Original code `1 + sqrt(cited_by_count)` | 100% | ✅ Yes |
 
 ### 7.3 Unknown/Cannot Verify
@@ -700,8 +745,11 @@ AUTHOR_MAPPINGS = {
 ⚠️ **Edge N-gram**: INFERRED (94-96% overlap validates it)
 
 **Scoring/Ranking**:
-✅ **BM25**: CONFIRMED (Elasticsearch default, documented)
+⚠️ **Text Similarity**: LIKELY BM25 (ES default, 85% confidence)
+   - Docs say "text similarity" but don't specify algorithm
+   - BM25 is ES default since 2016, no custom config found
+   - Cannot confirm without production index access
 ✅ **Citation Boosting**: CONFIRMED (sqrt weighting documented, exact formula in code)
-✅ **Combined Score**: BM25 × citation_boost
+✅ **Combined Score**: text_similarity × citation_boost
 
-**Recommendation**: Add stemming and stop words to match production more closely. BM25 and citation boosting already match perfectly.
+**Recommendation**: Add stemming and stop words to match production more closely. Text similarity likely matches (BM25 default), citation boosting definitely matches.
