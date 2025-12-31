@@ -78,7 +78,7 @@ AUTHOR_MAPPINGS = {
             "analyzer": {
                 "folding": {
                     "tokenizer": "standard",
-                    "filter": ["lowercase", "asciifolding"]
+                    "filter": ["lowercase", "asciifolding", "stop", "kstem"]
                 },
                 "autocomplete_analyzer": {
                     "tokenizer": "autocomplete_tokenizer",
