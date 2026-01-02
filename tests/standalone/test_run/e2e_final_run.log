@@ -1,0 +1,230 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /home/user/openalex-elastic-api/tests/standalone/test_run
+collecting ... collected 1 item
+
+test_end_to_end_validation.py::test_end_to_end_statistical_validation 
+================================================================================
+END-TO-END STATISTICAL VALIDATION TEST (ALL README STEPS)
+================================================================================
+
+→ Step 1: Setting up Elasticsearch...
+  Running: ./setup_elasticsearch.sh
+✓ Elasticsearch setup complete
+
+✓ Verified: Elasticsearch running at http://127.0.0.1:9200
+
+→ Step 2: Indexing authors from sample parquet...
+  Running: python scripts/build_author_index_from_parquet.py --parquet-file /home/user/openalex-elastic-api/tests/standalone/test_run/fixtures/sample_authors_details.parquet
+Connecting to Elasticsearch: http://127.0.0.1:9200
+✓ Connected to Elasticsearch
+  Cluster: openalex-test
+  Version: 8.9.0
+Index authors-v16 already exists
+
+Indexing authors to: authors-v16
+================================================================================
+Loading parquet file: /home/user/openalex-elastic-api/tests/standalone/test_run/fixtures/sample_authors_details.parquet
+Total authors: 8
+
+Processing chunk 1 (8 authors)
+  ✓ Indexed: 8
+  Total so far: 8
+
+Refreshing index...
+
+================================================================================
+✓ Indexing complete!
+  Total indexed: 8
+  Total failed: 0
+================================================================================
+
+Final document count: 15
+
+✓ Indexed 0 authors from sample_authors_details.parquet
+
+→ Step 3: Checking API response fixtures...
+✓ Found 1 fixture file(s):
+  - 1640000000.json
+
+→ Step 4: Running statistical validation...
+
+================================================================================
+STATISTICAL VALIDATION: Real OpenAlex API Responses
+================================================================================
+
+Loading API responses...
+Found 2 JSON files
+Loaded queries from 2 files
+Total unique queries: 4
+Found 4 queries with multiple responses (temporal data)
+
+================================================================================
+TEMPORAL CONSISTENCY CHECK
+================================================================================
+
+
+Temporal Consistency Results:
+  Queries with duplicates:    4
+  Perfectly consistent:       4
+  Average consistency rate:   100.00%
+  ✅ All duplicate queries are perfectly consistent!
+
+================================================================================
+SET COMPARISON (ORDER-INDEPENDENT)
+================================================================================
+
+Computing set-based metrics...
+NOTE: We validate that our algorithm returns the SAME AUTHORS as API,
+      regardless of ranking order (custom ranking implemented separately).
+
+
+✓ Processed all queries
+  Valid comparisons:     3
+  Both empty (skipped):  1
+
+================================================================================
+EMPTY QUERY CONSISTENCY
+================================================================================
+
+Total API empty queries: 1
+  Both empty:            1 ✓
+  API empty, local has:  0
+  Local empty, API has:  0
+
+✅ Perfect empty consistency! Local also returns empty for all API-empty queries.
+
+================================================================================
+RESULTS: Statistical Validation
+================================================================================
+
+EXACT SET MATCH:
+  Mean:       0.0000
+  Median:     0.0000
+  Std Dev:    0.0000
+  25th %ile:  0.0000
+  75th %ile:  0.0000
+  Sample:     3 queries
+
+RECALL:
+  Mean:       0.7556
+  Median:     0.6667
+  Std Dev:    0.1750
+  25th %ile:  0.6333
+  75th %ile:  0.8333
+  Sample:     3 queries
+
+PRECISION:
+  Mean:       0.5889
+  Median:     0.6000
+  Std Dev:    0.0685
+  25th %ile:  0.5500
+  75th %ile:  0.6333
+  Sample:     3 queries
+
+F1 SCORE:
+  Mean:       0.6571
+  Median:     0.6000
+  Std Dev:    0.1017
+  25th %ile:  0.5857
+  75th %ile:  0.7000
+  Sample:     3 queries
+
+JACCARD SIMILARITY:
+  Mean:       0.4984
+  Median:     0.4286
+  Std Dev:    0.1195
+  25th %ile:  0.4143
+  75th %ile:  0.5476
+  Sample:     3 queries
+
+SET SIZE RATIO:
+  Mean:       1.2778
+  Median:     1.3333
+  Std Dev:    0.2079
+  25th %ile:  1.1667
+  75th %ile:  1.4167
+  Sample:     3 queries
+
+================================================================================
+OVERALL ASSESSMENT (SET COMPARISON - ORDER INDEPENDENT)
+================================================================================
+
+Sample size:           3 queries
+Exact set match:       0.00%  (same authors, any order)
+Recall:                75.56%  (% of API authors we found)
+Precision:             58.89%  (% of our results in API)
+F1 Score:              65.71%  (harmonic mean)
+Jaccard Similarity:    49.84%  (intersection/union)
+
+INTERPRETATION:
+
+NOTE: We validate that our algorithm returns the SAME AUTHORS as OpenAlex API.
+      Ranking order is NOT evaluated (custom ranking implemented separately).
+
+Since local corpus uses SciSciNet v2 (from OpenAlex, same data source),
+we expect very high set overlap. Lower values indicate dump version differences.
+
+⚠️  MODERATE RECALL: 70-85%
+   Missing some API authors - check corpus completeness
+
+❌ LOW PRECISION: <70%
+   Many extra authors not in API - check implementation
+
+❌ LOW F1: <70%
+   Poor set match - check corpus or implementation
+
+================================================================================
+
+✓ Detailed results saved to: /home/user/openalex-elastic-api/tests/standalone/statistical_validation_results.json
+
+⚠️  Small sample size (n=3) - results may not be statistically significant
+   Consider collecting more API responses for robust validation
+⚠️  WARNING: Low precision (58.89%) - unexpected for same-source corpus
+⚠️  WARNING: Low F1 score (65.71%) - unexpected for same-source corpus
+
+✓ Statistical validation completed
+
+→ Step 5: Loading validation results...
+✓ Results loaded from statistical_validation_results.json
+
+→ Step 6: Saving report to test_run/reports/...
+✓ Report saved to: /home/user/openalex-elastic-api/tests/standalone/test_run/reports/end_to_end_validation_report.json
+
+================================================================================
+KEY METRICS SUMMARY
+================================================================================
+
+Total queries tested:    4
+Valid comparisons:       3
+
+
+Empty Query Consistency:
+  API empty queries:     1
+  Both empty:            1
+  API empty, local has:  0
+  Local empty, API has:  0
+
+Temporal Consistency:
+  Duplicate queries:     4
+  Perfectly consistent:  4
+
+================================================================================
+
+✅ END-TO-END TEST PASSED
+
+Full report available at: /home/user/openalex-elastic-api/tests/standalone/test_run/reports/end_to_end_validation_report.json
+
+PASSED
+
+=============================== warnings summary ===============================
+test_end_to_end_validation.py::test_end_to_end_statistical_validation
+test_end_to_end_validation.py::test_end_to_end_statistical_validation
+test_end_to_end_validation.py::test_end_to_end_statistical_validation
+test_end_to_end_validation.py::test_end_to_end_statistical_validation
+  /usr/local/lib/python3.11/dist-packages/elasticsearch_dsl/connections.py:84: DeprecationWarning: The 'timeout' parameter is deprecated in favor of 'request_timeout'
+    conn = self._conns[alias] = self.elasticsearch_class(**kwargs)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 4 warnings in 24.92s ========================

@@ -1,0 +1,2284 @@
+{
+  "Albert Einstein": [
+    {
+      "id": "https://openalex.org/A5094077736",
+      "short_id": "authors/A5094077736",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 106,
+      "works_count": 29,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5111921673",
+      "short_id": "authors/A5111921673",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 4154,
+      "works_count": 291,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5109805546",
+      "short_id": "authors/A5109805546",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 19081,
+      "works_count": 279,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5103682982",
+      "short_id": "authors/A5103682982",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 3080,
+      "works_count": 315,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5027111866",
+      "short_id": "authors/A5027111866",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 14,
+      "works_count": 8,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5002701977",
+      "short_id": "authors/A5002701977",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5040998406",
+      "short_id": "authors/A5040998406",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5105449952",
+      "short_id": "authors/A5105449952",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5099838551",
+      "short_id": "authors/A5099838551",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5119531519",
+      "short_id": "authors/A5119531519",
+      "display_name": "Albert Einstein",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Marie Curie": [
+    {
+      "id": "https://openalex.org/A5068773159",
+      "short_id": "authors/A5068773159",
+      "display_name": "Marie Curie",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5094448657",
+      "short_id": "authors/A5094448657",
+      "display_name": "Marie Curie",
+      "hint": "Massachusetts Institute of Technology, USA",
+      "cited_by_count": 0,
+      "works_count": 5,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5094092233",
+      "short_id": "authors/A5094092233",
+      "display_name": "Marie Curie",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5099454797",
+      "short_id": "authors/A5099454797",
+      "display_name": "Marie Curie",
+      "hint": "European Society for Therapeutic Radiology and Oncology, Belgium",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5095305276",
+      "short_id": "authors/A5095305276",
+      "display_name": "Marie Curie",
+      "hint": "Matrix Research (United States), USA",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5038745913",
+      "short_id": "authors/A5038745913",
+      "display_name": "Marie Curie",
+      "hint": null,
+      "cited_by_count": 283,
+      "works_count": 85,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5024700653",
+      "short_id": "authors/A5024700653",
+      "display_name": "Marie Curie",
+      "hint": "Pioneer (Japan), Japan",
+      "cited_by_count": 0,
+      "works_count": 4,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5046933271",
+      "short_id": "authors/A5046933271",
+      "display_name": "Marie Curie",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5112581527",
+      "short_id": "authors/A5112581527",
+      "display_name": "Marie Curie",
+      "hint": null,
+      "cited_by_count": 98,
+      "works_count": 6,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5002737117",
+      "short_id": "authors/A5002737117",
+      "display_name": "Marie Curie-Paris",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 118,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Richard Feynman": [
+    {
+      "id": "https://openalex.org/A5072318964",
+      "short_id": "authors/A5072318964",
+      "display_name": "Richard Feynman",
+      "hint": null,
+      "cited_by_count": 489,
+      "works_count": 25,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5056139766",
+      "short_id": "authors/A5056139766",
+      "display_name": "Richard Feynman Physicien am\u00e9ricain",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5038467665",
+      "short_id": "authors/A5038467665",
+      "display_name": "Richard Feynmann",
+      "hint": "University of Edinburgh, UK",
+      "cited_by_count": 2,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5055105422",
+      "short_id": "authors/A5055105422",
+      "display_name": "Carl Richard Feynman",
+      "hint": null,
+      "cited_by_count": 54,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5037710835",
+      "short_id": "authors/A5037710835",
+      "display_name": "Richard P. Feynman",
+      "hint": null,
+      "cited_by_count": 74165,
+      "works_count": 455,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Ada Lovelace": [
+    {
+      "id": "https://openalex.org/A5118134932",
+      "short_id": "authors/A5118134932",
+      "display_name": "Ada Lovelace",
+      "hint": null,
+      "cited_by_count": 3,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5095648084",
+      "short_id": "authors/A5095648084",
+      "display_name": "Ada Lovelace",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5094537975",
+      "short_id": "authors/A5094537975",
+      "display_name": "Ada Lovelace",
+      "hint": "University of London, UK",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5036216871",
+      "short_id": "authors/A5036216871",
+      "display_name": "Ma Isabel Peque\u00f1a grande Ada Lovelace",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5112094776",
+      "short_id": "authors/A5112094776",
+      "display_name": "A. M. Lovelace",
+      "hint": "Association for Computing Machinery, USA",
+      "cited_by_count": 41,
+      "works_count": 7,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5052223708",
+      "short_id": "authors/A5052223708",
+      "display_name": "Ada King Lovelace",
+      "hint": null,
+      "cited_by_count": 6,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Alan Turing": [
+    {
+      "id": "https://openalex.org/A5068057719",
+      "short_id": "authors/A5068057719",
+      "display_name": "Alan Turing",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5066565862",
+      "short_id": "authors/A5066565862",
+      "display_name": "Alan Turing",
+      "hint": null,
+      "cited_by_count": 43055,
+      "works_count": 75,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5082255016",
+      "short_id": "authors/A5082255016",
+      "display_name": "Alan Turing Philip Dossick",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5094321184",
+      "short_id": "authors/A5094321184",
+      "display_name": "The Alan Turing Institute",
+      "hint": null,
+      "cited_by_count": 4,
+      "works_count": 28,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5018358559",
+      "short_id": "authors/A5018358559",
+      "display_name": "A. Alan Turing",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5030268489",
+      "short_id": "authors/A5030268489",
+      "display_name": "C. Alan Turing",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Rosalind Franklin": [
+    {
+      "id": "https://openalex.org/A5024487052",
+      "short_id": "authors/A5024487052",
+      "display_name": "Rosalind Franklin",
+      "hint": null,
+      "cited_by_count": 5663,
+      "works_count": 76,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5050417466",
+      "short_id": "authors/A5050417466",
+      "display_name": "Rosalind Ethelline Franklin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Isaac Newton": [
+    {
+      "id": "https://openalex.org/A5074465675",
+      "short_id": "authors/A5074465675",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 7611,
+      "works_count": 412,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5100471818",
+      "short_id": "authors/A5100471818",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5100486595",
+      "short_id": "authors/A5100486595",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104900344",
+      "short_id": "authors/A5104900344",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104966305",
+      "short_id": "authors/A5104966305",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5016522488",
+      "short_id": "authors/A5016522488",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5100474859",
+      "short_id": "authors/A5100474859",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104819902",
+      "short_id": "authors/A5104819902",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5118620476",
+      "short_id": "authors/A5118620476",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5110866853",
+      "short_id": "authors/A5110866853",
+      "display_name": "Isaac Newton",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Charles Darwin": [
+    {
+      "id": "https://openalex.org/A5110862270",
+      "short_id": "authors/A5110862270",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 18192,
+      "works_count": 204,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5003086136",
+      "short_id": "authors/A5003086136",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 86707,
+      "works_count": 1089,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5097864621",
+      "short_id": "authors/A5097864621",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104918950",
+      "short_id": "authors/A5104918950",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5107176365",
+      "short_id": "authors/A5107176365",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5097181064",
+      "short_id": "authors/A5097181064",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 50,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5098234349",
+      "short_id": "authors/A5098234349",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5052677552",
+      "short_id": "authors/A5052677552",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104817590",
+      "short_id": "authors/A5104817590",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5097017037",
+      "short_id": "authors/A5097017037",
+      "display_name": "Charles Darwin",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Jane Goodall": [
+    {
+      "id": "https://openalex.org/A5104492711",
+      "short_id": "authors/A5104492711",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 13754,
+      "works_count": 295,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5112714442",
+      "short_id": "authors/A5112714442",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 1123,
+      "works_count": 21,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5093485557",
+      "short_id": "authors/A5093485557",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5119945119",
+      "short_id": "authors/A5119945119",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5093381315",
+      "short_id": "authors/A5093381315",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 2,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5097361063",
+      "short_id": "authors/A5097361063",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 2,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104740516",
+      "short_id": "authors/A5104740516",
+      "display_name": "Jane Goodall",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5005619823",
+      "short_id": "authors/A5005619823",
+      "display_name": "Jane Goodall",
+      "hint": "University of Cambridge, UK",
+      "cited_by_count": 9987,
+      "works_count": 122,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-3761-161X",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5095569764",
+      "short_id": "authors/A5095569764",
+      "display_name": "Jane Goodall",
+      "hint": "University of Technology Sydney, Australia",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5056054379",
+      "short_id": "authors/A5056054379",
+      "display_name": "Sarah Jane Goodall",
+      "hint": "Mid Sweden University, Sweden",
+      "cited_by_count": 15,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Stephen Hawking": [
+    {
+      "id": "https://openalex.org/A5112382587",
+      "short_id": "authors/A5112382587",
+      "display_name": "Stephen Hawking",
+      "hint": null,
+      "cited_by_count": 17,
+      "works_count": 16,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5104836898",
+      "short_id": "authors/A5104836898",
+      "display_name": "Stephen Hawking",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5070926327",
+      "short_id": "authors/A5070926327",
+      "display_name": "Stephen Hawkings",
+      "hint": null,
+      "cited_by_count": 172,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5105217739",
+      "short_id": "authors/A5105217739",
+      "display_name": "Stephen Hawking Lucy Hawking",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5028378314",
+      "short_id": "authors/A5028378314",
+      "display_name": "Prof-Stephen-Hawking",
+      "hint": null,
+      "cited_by_count": 2,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5068752385",
+      "short_id": "authors/A5068752385",
+      "display_name": "STEPHEN HAWKING",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5066175077",
+      "short_id": "authors/A5066175077",
+      "display_name": "S. W. Hawking",
+      "hint": null,
+      "cited_by_count": 91202,
+      "works_count": 428,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-9079-593X",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5074821306",
+      "short_id": "authors/A5074821306",
+      "display_name": "S Hawking",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 20,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Niels Bohr": [
+    {
+      "id": "https://openalex.org/A5110436352",
+      "short_id": "authors/A5110436352",
+      "display_name": "Niels Bohr",
+      "hint": null,
+      "cited_by_count": 16818,
+      "works_count": 301,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5078488214",
+      "short_id": "authors/A5078488214",
+      "display_name": "Niels Bohr",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5095071208",
+      "short_id": "authors/A5095071208",
+      "display_name": "Niels Bohr",
+      "hint": "Winterthur Museum Garden and Library, USA",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5079242695",
+      "short_id": "authors/A5079242695",
+      "display_name": "Niels Bohr",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5107685796",
+      "short_id": "authors/A5107685796",
+      "display_name": "Niels Bohr",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5116553455",
+      "short_id": "authors/A5116553455",
+      "display_name": "Niels Bohr",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5048439851",
+      "short_id": "authors/A5048439851",
+      "display_name": "Niels Bohrman",
+      "hint": "The Ohio State University, USA",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5088788004",
+      "short_id": "authors/A5088788004",
+      "display_name": "Niels Bohrweg",
+      "hint": null,
+      "cited_by_count": 189,
+      "works_count": 21,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5019999953",
+      "short_id": "authors/A5019999953",
+      "display_name": "Niels Bohr Intitute",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5045205350",
+      "short_id": "authors/A5045205350",
+      "display_name": "Niels Bohrweq",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Emmy Noether": [
+    {
+      "id": "https://openalex.org/A5097463112",
+      "short_id": "authors/A5097463112",
+      "display_name": "Emmy Noether",
+      "hint": null,
+      "cited_by_count": 29,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5071811098",
+      "short_id": "authors/A5071811098",
+      "display_name": "Emmy Noether",
+      "hint": null,
+      "cited_by_count": 1978,
+      "works_count": 81,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5096760310",
+      "short_id": "authors/A5096760310",
+      "display_name": "Emmy Noether",
+      "hint": null,
+      "cited_by_count": 6,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5060128121",
+      "short_id": "authors/A5060128121",
+      "display_name": "Germany Claudia Roesch is a researcher at the Department of History of University of M\u00fcnster",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "John von Neumann": [
+    {
+      "id": "https://openalex.org/A5097252090",
+      "short_id": "authors/A5097252090",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5099286022",
+      "short_id": "authors/A5099286022",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5117513522",
+      "short_id": "authors/A5117513522",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5100469411",
+      "short_id": "authors/A5100469411",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 4,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5099699234",
+      "short_id": "authors/A5099699234",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5099223067",
+      "short_id": "authors/A5099223067",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5099903442",
+      "short_id": "authors/A5099903442",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5109572212",
+      "short_id": "authors/A5109572212",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 306,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5112237696",
+      "short_id": "authors/A5112237696",
+      "display_name": "John von Neumann",
+      "hint": null,
+      "cited_by_count": 42807,
+      "works_count": 322,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5010608886",
+      "short_id": "authors/A5010608886",
+      "display_name": "John von Neumann-Institut",
+      "hint": null,
+      "cited_by_count": 4,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Grace Hopper": [
+    {
+      "id": "https://openalex.org/A5079574788",
+      "short_id": "authors/A5079574788",
+      "display_name": "V. Grace Hopper",
+      "hint": null,
+      "cited_by_count": 20,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5006593321",
+      "short_id": "authors/A5006593321",
+      "display_name": "Grace Murray Hopper",
+      "hint": null,
+      "cited_by_count": 174,
+      "works_count": 35,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Katherine Johnson": [
+    {
+      "id": "https://openalex.org/A5103452602",
+      "short_id": "authors/A5103452602",
+      "display_name": "Katherine Johnson",
+      "hint": null,
+      "cited_by_count": 52,
+      "works_count": 5,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5107033904",
+      "short_id": "authors/A5107033904",
+      "display_name": "Katherine Johnson",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5062998592",
+      "short_id": "authors/A5062998592",
+      "display_name": "Katherine Johnson",
+      "hint": "Temple University, USA",
+      "cited_by_count": 201,
+      "works_count": 7,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5076383571",
+      "short_id": "authors/A5076383571",
+      "display_name": "Katherine Johnson",
+      "hint": "William & Mary, USA",
+      "cited_by_count": 287,
+      "works_count": 6,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5098775711",
+      "short_id": "authors/A5098775711",
+      "display_name": "Katherine Johnson",
+      "hint": "Self Regional Healthcare, USA",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5023406677",
+      "short_id": "authors/A5023406677",
+      "display_name": "Katherine Johnson",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5043762783",
+      "short_id": "authors/A5043762783",
+      "display_name": "Katherine Johnson",
+      "hint": "University of Brighton, UK",
+      "cited_by_count": 0,
+      "works_count": 4,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5012666588",
+      "short_id": "authors/A5012666588",
+      "display_name": "Katherine Johnson",
+      "hint": "RMIT University, Australia",
+      "cited_by_count": 3674,
+      "works_count": 106,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0001-7092-4426",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5101484082",
+      "short_id": "authors/A5101484082",
+      "display_name": "Katherine Johnson",
+      "hint": "National Institutes of Health, USA",
+      "cited_by_count": 275,
+      "works_count": 25,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-9226-0672",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5023884695",
+      "short_id": "authors/A5023884695",
+      "display_name": "Katherine Johnson",
+      "hint": "Eastern Virginia Medical School, USA",
+      "cited_by_count": 5,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Al": [
+    {
+      "id": "https://openalex.org/A5094611752",
+      "short_id": "authors/A5094611752",
+      "display_name": "Al'ai",
+      "hint": "Stanford University, USA",
+      "cited_by_count": 4,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5093120755",
+      "short_id": "authors/A5093120755",
+      "display_name": "Ala'Khalifeh",
+      "hint": "German Jordanian University, Jordan",
+      "cited_by_count": 3,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5081330912",
+      "short_id": "authors/A5081330912",
+      "display_name": "Al'tshuller",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5075810457",
+      "short_id": "authors/A5075810457",
+      "display_name": "Al'Azar",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5075246953",
+      "short_id": "authors/A5075246953",
+      "display_name": "Alaaeddin Al Ahmad",
+      "hint": null,
+      "cited_by_count": 3,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5103869546",
+      "short_id": "authors/A5103869546",
+      "display_name": "Al.Kh. Baymiev",
+      "hint": "Ufa Institute of Chemistry, Russian Federation",
+      "cited_by_count": 130,
+      "works_count": 25,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5085990783",
+      "short_id": "authors/A5085990783",
+      "display_name": "Al.Khafaje Et al.",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5007347445",
+      "short_id": "authors/A5007347445",
+      "display_name": "Ala'a Al-Helaili",
+      "hint": null,
+      "cited_by_count": 4,
+      "works_count": 6,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-6970-2858",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5111841205",
+      "short_id": "authors/A5111841205",
+      "display_name": "Alaadin M. Alaadin",
+      "hint": "University of Copenhagen, Denmark",
+      "cited_by_count": 40,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5092669257",
+      "short_id": "authors/A5092669257",
+      "display_name": "Ala'a Al-junaidi",
+      "hint": "Jadara University, Jordan",
+      "cited_by_count": 90,
+      "works_count": 4,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Ma": [
+    {
+      "id": "https://openalex.org/A5020184560",
+      "short_id": "authors/A5020184560",
+      "display_name": "Ma'rifatillah Ma'rifatillah",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5068587291",
+      "short_id": "authors/A5068587291",
+      "display_name": "Ma'rifa Ma'rifa",
+      "hint": "Tadulako University, Indonesia",
+      "cited_by_count": 21,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5113796201",
+      "short_id": "authors/A5113796201",
+      "display_name": "Ma'sumah Ma sumah",
+      "hint": null,
+      "cited_by_count": 7,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5114733659",
+      "short_id": "authors/A5114733659",
+      "display_name": "Ma'sumah Ma'sumah",
+      "hint": "University of Pembangunan Nasional Veteran Jawa Timur, Indonesia",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5092824272",
+      "short_id": "authors/A5092824272",
+      "display_name": "Ma'wa Ma'wa",
+      "hint": "Universitas Abulyatama, Indonesia",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5119027499",
+      "short_id": "authors/A5119027499",
+      "display_name": "Ma'aruf Ma'aruf",
+      "hint": "Andalas University, Indonesia",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5001112581",
+      "short_id": "authors/A5001112581",
+      "display_name": "Ma'aruf Ma'aruf",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5036693417",
+      "short_id": "authors/A5036693417",
+      "display_name": "Ma'rifatun Ma'rifatun",
+      "hint": null,
+      "cited_by_count": 4,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5116352887",
+      "short_id": "authors/A5116352887",
+      "display_name": "Ma'rufah Ma'rufah",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5096393649",
+      "short_id": "authors/A5096393649",
+      "display_name": "Maamache",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Li": [
+    {
+      "id": "https://openalex.org/A5044315531",
+      "short_id": "authors/A5044315531",
+      "display_name": "Lianfang Lian",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5007015017",
+      "short_id": "authors/A5007015017",
+      "display_name": "Liahne Li",
+      "hint": "University of Leeds, UK",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5101844839",
+      "short_id": "authors/A5101844839",
+      "display_name": "Liangbin Li",
+      "hint": null,
+      "cited_by_count": 296,
+      "works_count": 22,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5119042363",
+      "short_id": "authors/A5119042363",
+      "display_name": "Liafathra",
+      "hint": "State University of Semarang, Indonesia",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5093077608",
+      "short_id": "authors/A5093077608",
+      "display_name": "Lialismeri",
+      "hint": "Lampung University, Indonesia",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5121001056",
+      "short_id": "authors/A5121001056",
+      "display_name": "Liangbin Li",
+      "hint": "University of Science and Technology of China, China",
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5044943162",
+      "short_id": "authors/A5044943162",
+      "display_name": "Liachkovski\u012d",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5023112751",
+      "short_id": "authors/A5023112751",
+      "display_name": "LiaLY",
+      "hint": null,
+      "cited_by_count": 13,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5065334224",
+      "short_id": "authors/A5065334224",
+      "display_name": "LiAiqing",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5116933591",
+      "short_id": "authors/A5116933591",
+      "display_name": "Lianghong Li",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Smith": [
+    {
+      "id": "https://openalex.org/A5075484770",
+      "short_id": "authors/A5075484770",
+      "display_name": "Smitha.S.G Dr. Smitha.S.G",
+      "hint": "Kempegowda Institute of Medical Sciences, India",
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5012352199",
+      "short_id": "authors/A5012352199",
+      "display_name": "Smithachandra",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5041559037",
+      "short_id": "authors/A5041559037",
+      "display_name": "Smithdeal",
+      "hint": null,
+      "cited_by_count": 6,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5115491189",
+      "short_id": "authors/A5115491189",
+      "display_name": "Smithsshree",
+      "hint": null,
+      "cited_by_count": 3,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5097683026",
+      "short_id": "authors/A5097683026",
+      "display_name": "Smithhisler",
+      "hint": "Massachusetts Institute of Technology, USA",
+      "cited_by_count": 36,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5012567657",
+      "short_id": "authors/A5012567657",
+      "display_name": "SmithAdrienne",
+      "hint": null,
+      "cited_by_count": 3,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5059062947",
+      "short_id": "authors/A5059062947",
+      "display_name": "Smitharani",
+      "hint": null,
+      "cited_by_count": 4,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5069285027",
+      "short_id": "authors/A5069285027",
+      "display_name": "SmithRyan",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5103902485",
+      "short_id": "authors/A5103902485",
+      "display_name": "SmithBarry",
+      "hint": null,
+      "cited_by_count": 1,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5080312180",
+      "short_id": "authors/A5080312180",
+      "display_name": "SmithDavid",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 4,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Wang": [
+    {
+      "id": "https://openalex.org/A5025451472",
+      "short_id": "authors/A5025451472",
+      "display_name": "Wangechi Rose Wangari",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5005172063",
+      "short_id": "authors/A5005172063",
+      "display_name": "Wangari Wang\u2019ombe",
+      "hint": "De Montfort University, UK",
+      "cited_by_count": 11,
+      "works_count": 5,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5004178730",
+      "short_id": "authors/A5004178730",
+      "display_name": "WangChunqing Wang",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5041208286",
+      "short_id": "authors/A5041208286",
+      "display_name": "Wang Wangan",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5036590769",
+      "short_id": "authors/A5036590769",
+      "display_name": "Wang Wangbing",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5058995950",
+      "short_id": "authors/A5058995950",
+      "display_name": "Wang Wanggen",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5093552467",
+      "short_id": "authors/A5093552467",
+      "display_name": "Wangbiao Wang",
+      "hint": "Xinjiang Uygur Autonomous Region Disease Prevention and Control Center, China",
+      "cited_by_count": 10,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5022546138",
+      "short_id": "authors/A5022546138",
+      "display_name": "Wangcheng Wang",
+      "hint": "Hangzhou City University",
+      "cited_by_count": 135,
+      "works_count": 6,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0001-6492-0840",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5062631801",
+      "short_id": "authors/A5062631801",
+      "display_name": "Wangbo Wang",
+      "hint": null,
+      "cited_by_count": 169,
+      "works_count": 9,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5017213599",
+      "short_id": "authors/A5017213599",
+      "display_name": "Wangfei Wang",
+      "hint": "University of Illinois Chicago, USA",
+      "cited_by_count": 371,
+      "works_count": 18,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-7401-2421",
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Johnson": [
+    {
+      "id": "https://openalex.org/A5094892623",
+      "short_id": "authors/A5094892623",
+      "display_name": "Johnsonianissimo Johnsoniana",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5110128788",
+      "short_id": "authors/A5110128788",
+      "display_name": "Johnson",
+      "hint": "Petra Christian University, Indonesia",
+      "cited_by_count": 457,
+      "works_count": 159,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5090774576",
+      "short_id": "authors/A5090774576",
+      "display_name": "Johnson.S",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5109329265",
+      "short_id": "authors/A5109329265",
+      "display_name": "Johnson",
+      "hint": null,
+      "cited_by_count": 5,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5111682879",
+      "short_id": "authors/A5111682879",
+      "display_name": "Johnson",
+      "hint": null,
+      "cited_by_count": 221,
+      "works_count": 114,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5111494414",
+      "short_id": "authors/A5111494414",
+      "display_name": "Johnson",
+      "hint": null,
+      "cited_by_count": 12,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5096931656",
+      "short_id": "authors/A5096931656",
+      "display_name": "Johnsonian",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5103851231",
+      "short_id": "authors/A5103851231",
+      "display_name": "JohnsonDavid",
+      "hint": "China Three Gorges University, China",
+      "cited_by_count": 16,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5102542799",
+      "short_id": "authors/A5102542799",
+      "display_name": "Johnson",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5105397308",
+      "short_id": "authors/A5105397308",
+      "display_name": "Johnson",
+      "hint": null,
+      "cited_by_count": 188,
+      "works_count": 23,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "O'Brien": [
+    {
+      "id": "https://openalex.org/A5071658877",
+      "short_id": "authors/A5071658877",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 5,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5101621869",
+      "short_id": "authors/A5101621869",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 42,
+      "works_count": 11,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5096276023",
+      "short_id": "authors/A5096276023",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5032346830",
+      "short_id": "authors/A5032346830",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 2,
+      "works_count": 14,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5098290278",
+      "short_id": "authors/A5098290278",
+      "display_name": "O'Brien",
+      "hint": "Queen Victoria Memorial Hospital, UK",
+      "cited_by_count": 6,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5098479772",
+      "short_id": "authors/A5098479772",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5098221500",
+      "short_id": "authors/A5098221500",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5096349887",
+      "short_id": "authors/A5096349887",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5074019177",
+      "short_id": "authors/A5074019177",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 72,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5060942012",
+      "short_id": "authors/A5060942012",
+      "display_name": "O'Brien",
+      "hint": null,
+      "cited_by_count": 62,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Jos\u00e9 Garc\u00eda": [
+    {
+      "id": "https://openalex.org/A5100739786",
+      "short_id": "authors/A5100739786",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": null,
+      "cited_by_count": 26,
+      "works_count": 38,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0003-3258-9000",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5009322181",
+      "short_id": "authors/A5009322181",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": null,
+      "cited_by_count": 70,
+      "works_count": 7,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5083853809",
+      "short_id": "authors/A5083853809",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": null,
+      "cited_by_count": 182,
+      "works_count": 42,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0003-3126-8352",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5112040132",
+      "short_id": "authors/A5112040132",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5112839091",
+      "short_id": "authors/A5112839091",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": "Instituto Polit\u00e9cnico Nacional, Mexico",
+      "cited_by_count": 2,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5023813745",
+      "short_id": "authors/A5023813745",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": null,
+      "cited_by_count": 3,
+      "works_count": 8,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-2679-7885",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5049736641",
+      "short_id": "authors/A5049736641",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 3,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5003897769",
+      "short_id": "authors/A5003897769",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": "Pontificia Universidad Cat\u00f3lica de Valpara\u00edso, Chile",
+      "cited_by_count": 1847,
+      "works_count": 104,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0003-3126-8352",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5106697393",
+      "short_id": "authors/A5106697393",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": "Universidad EAN, Colombia",
+      "cited_by_count": 5,
+      "works_count": 8,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5017240151",
+      "short_id": "authors/A5017240151",
+      "display_name": "Jos\u00e9 Garc\u00eda",
+      "hint": "California State University, Sacramento, USA",
+      "cited_by_count": 14,
+      "works_count": 5,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0002-2850-7298",
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "Fran\u00e7ois Dupont": [
+    {
+      "id": "https://openalex.org/A5108610892",
+      "short_id": "authors/A5108610892",
+      "display_name": "Fran\u00e7ois Dupont",
+      "hint": "Universit\u00e9 de Montr\u00e9al, Canada",
+      "cited_by_count": 58,
+      "works_count": 7,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5060429432",
+      "short_id": "authors/A5060429432",
+      "display_name": "Fran\u00e7ois Dupont",
+      "hint": "Universit\u00e9 de Montr\u00e9al, Canada",
+      "cited_by_count": 175,
+      "works_count": 12,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0009-0000-0637-1863",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5033832921",
+      "short_id": "authors/A5033832921",
+      "display_name": "Fran\u00e7ois Dupont",
+      "hint": "Centre National de la Recherche Scientifique, France",
+      "cited_by_count": 2,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": "https://orcid.org/0000-0001-5346-1263",
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5038814407",
+      "short_id": "authors/A5038814407",
+      "display_name": "Jean-Fran\u00e7ois Dupont",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5077724150",
+      "short_id": "authors/A5077724150",
+      "display_name": "Jean-Fran\u00e7ois Dupont",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5059163862",
+      "short_id": "authors/A5059163862",
+      "display_name": "Martin-Fran\u00e7ois Dupont",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5044137563",
+      "short_id": "authors/A5044137563",
+      "display_name": "Pierre-Fran\u00e7ois Dupont-Beurier",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 5,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5082022313",
+      "short_id": "authors/A5082022313",
+      "display_name": "Jean-Fran\u00e7ois Dupont",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5003672817",
+      "short_id": "authors/A5003672817",
+      "display_name": "Pierre Charles Fran\u00e7ois Dupont de Bigorre",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 2,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    },
+    {
+      "id": "https://openalex.org/A5058715793",
+      "short_id": "authors/A5058715793",
+      "display_name": "Paul-Fran\u00e7ois Dupont",
+      "hint": null,
+      "cited_by_count": 0,
+      "works_count": 1,
+      "entity_type": "author",
+      "external_id": null,
+      "filter_key": "authorships.author.id"
+    }
+  ],
+  "": []
+}

@@ -1,0 +1,139 @@
+{
+  "Albert Einstein": [
+    {
+      "id": "https://openalex.org/A5109805546",
+      "display_name": "Albert Einstein",
+      "display_name_alternatives": [
+        "Albert Einstein",
+        "Albert Einſtein",
+        "ALBERT EINSTEIN",
+        "Albert. Einstein"
+      ],
+      "works_count": 279,
+      "cited_by_count": 19081
+    },
+    {
+      "id": "https://openalex.org/A5083138872",
+      "display_name": "Albert Einstein",
+      "display_name_alternatives": [
+        "Albert Einstein",
+        "A. EINSTEIN",
+        "Einstein Albert",
+        "A. Einstein"
+      ],
+      "works_count": 48,
+      "cited_by_count": 20097
+    },
+    {
+      "id": "https://openalex.org/A5111921673",
+      "display_name": "Albert Einstein",
+      "display_name_alternatives": [
+        "Albert Einstein",
+        "A. Einstein",
+        "Einstein, Albert",
+        "ALBERT EINSTEIN",
+        "A. EINSTEIN"
+      ],
+      "works_count": 291,
+      "cited_by_count": 4154
+    },
+    {
+      "id": "https://openalex.org/A5103682982",
+      "display_name": "Albert Einstein",
+      "display_name_alternatives": [
+        "Albert Einstein",
+        "A B Einstein",
+        "Albert B. Einstein",
+        "Albert B Einstein",
+        "ALBERT B. EINSTEIN",
+        "A. Einstein"
+      ],
+      "works_count": 315,
+      "cited_by_count": 3080
+    },
+    {
+      "id": "https://openalex.org/A5111388264",
+      "display_name": "Hans A. Einstein",
+      "display_name_alternatives": [
+        "Hans A. Einstein",
+        "HANS ALBERT EINSTEIN",
+        "Hans Albert Einstein"
+      ],
+      "works_count": 31,
+      "cited_by_count": 2923
+    }
+  ],
+  "Marie Curie": [
+    {
+      "id": "https://openalex.org/A5038745913",
+      "display_name": "Marie Curie",
+      "display_name_alternatives": [
+        "Marie Curie",
+        "M. Curie",
+        "M. M. E. Curie",
+        "M Curie"
+      ],
+      "works_count": 85,
+      "cited_by_count": 283
+    },
+    {
+      "id": "https://openalex.org/A5068951558",
+      "display_name": "Assunta Pelosi",
+      "display_name_alternatives": [
+        "Assunta Pelosi",
+        "Pelosi, Assunta (Institut Du Fer à Moulin, INSERM UMR-S839, Université Pierre Et Marie Curie, Paris)",
+        "A. Pelosi",
+        "Assunta PELOSI",
+        "A Pelosi"
+      ],
+      "works_count": 55,
+      "cited_by_count": 914
+    },
+    {
+      "id": "https://openalex.org/A5112581527",
+      "display_name": "Marie Curie",
+      "display_name_alternatives": [
+        "Marie Curie",
+        "Marie Sklodovska Curie"
+      ],
+      "works_count": 6,
+      "cited_by_count": 98
+    }
+  ],
+  "Richard Feynman": [
+    {
+      "id": "https://openalex.org/A5037710835",
+      "display_name": "Richard P. Feynman",
+      "display_name_alternatives": [
+        "Richard P. Feynman",
+        "Richard Phillips Feynman",
+        "Richard Feynman",
+        "Richard P Feynman",
+        "R.P. Feynman",
+        "R. P. FEYNMAN",
+        "Richard P.Hg Feynman",
+        "R. P. Feynman",
+        "Feynman, Richard",
+        "R P Feynman"
+      ],
+      "works_count": 455,
+      "cited_by_count": 74165
+    },
+    {
+      "id": "https://openalex.org/A5072318964",
+      "display_name": "Richard Feynman",
+      "display_name_alternatives": [
+        "Richard Feynman",
+        "Richard P Feynman",
+        "R. Feynman",
+        "R.P. Feynman",
+        "R. P. Feynman",
+        "Richard P. Feynman",
+        "Richard Philipps Feynman"
+      ],
+      "works_count": 25,
+      "cited_by_count": 489
+    }
+  ],
+  "": []
+}

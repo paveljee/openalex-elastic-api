@@ -1,0 +1,163 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /home/user/openalex-elastic-api
+collecting ... collected 1 item
+
+tests/standalone/test_run_autocomplete/test_pure_python_e2e.py::test_pure_python_autocomplete_validation 
+================================================================================
+PURE PYTHON AUTOCOMPLETE VALIDATION (vs Real OpenAlex API)
+================================================================================
+
+→ Step 1: Loading pure Python autocomplete...
+Pre-computing edge ngrams for autocomplete...
+✓ Pre-computed ngrams for 203 authors
+✓ Loaded 203 authors
+
+→ Step 2: Loading real autocomplete API responses...
+✓ Loaded 25 queries
+
+→ Step 3: Running validation...
+
+================================================================================
+RANKING VALIDATION (ORDER-DEPENDENT)
+================================================================================
+
+NOTE: For autocomplete, ranking order MATTERS for UX!
+      We validate that our ranking matches production API.
+
+  Processed 5/25 queries...
+  Processed 10/25 queries...
+  Processed 15/25 queries...
+  Processed 20/25 queries...
+  Processed 25/25 queries...
+
+✓ Processed all queries
+  Valid comparisons:     24
+  Skipped (no results):  1
+
+================================================================================
+RESULTS SUMMARY
+================================================================================
+
+Exact Match:
+  Mean:       0.0417
+  Std Dev:    0.1998
+  25th %ile:  0.0000
+  75th %ile:  0.0000
+
+Top 1 Overlap:
+  Mean:       0.2917
+  Std Dev:    0.4545
+  25th %ile:  0.0000
+  75th %ile:  1.0000
+
+Top 3 Overlap:
+  Mean:       0.6250
+  Std Dev:    0.3376
+  25th %ile:  0.3333
+  75th %ile:  1.0000
+
+Top 5 Overlap:
+  Mean:       0.6896
+  Std Dev:    0.2508
+  25th %ile:  0.5500
+  75th %ile:  0.8500
+
+Top 10 Overlap:
+  Mean:       0.9597
+  Std Dev:    0.0826
+  25th %ile:  1.0000
+  75th %ile:  1.0000
+
+Kendall Tau:
+  Mean:       0.3614
+  Std Dev:    0.4744
+  25th %ile:  0.0556
+  75th %ile:  0.6667
+
+Ndcg 10:
+  Mean:       0.8834
+  Std Dev:    0.0948
+  25th %ile:  0.8151
+  75th %ile:  0.9537
+
+================================================================================
+OVERALL ASSESSMENT (PURE PYTHON vs PRODUCTION API)
+================================================================================
+
+Sample size:           24 queries
+Exact match rate:      4.17%
+Top-1 overlap:         29.17%
+Top-5 overlap:         68.96%
+Top-10 overlap:        95.97%
+Kendall's Tau:         0.3614
+NDCG@10:               0.8834
+
+INTERPRETATION:
+
+✅ EXCELLENT: 96.0% top-10 overlap - Finds same authors as API
+
+✅ EXCELLENT: NDCG 0.88 - High ranking quality
+
+⚠️  MODERATE: Kendall's Tau 0.36 - Moderate correlation
+
+================================================================================
+
+✓ Report saved to: /home/user/openalex-elastic-api/tests/standalone/test_run_autocomplete/reports/pure_python_validation_report.json
+
+✅ PURE PYTHON AUTOCOMPLETE VALIDATION COMPLETE
+
+Full report available at: /home/user/openalex-elastic-api/tests/standalone/test_run_autocomplete/reports/pure_python_validation_report.json
+
+================================================================================
+BEST PERFORMING QUERIES (Top 5 by top-10 overlap)
+================================================================================
+
+1. Query: 'Albert Einstein'
+   Top-10 overlap: 100.0%
+   NDCG: 0.939
+
+2. Query: 'Marie Curie'
+   Top-10 overlap: 100.0%
+   NDCG: 0.807
+
+3. Query: 'Richard Feynman'
+   Top-10 overlap: 100.0%
+   NDCG: 0.996
+
+4. Query: 'Alan Turing'
+   Top-10 overlap: 100.0%
+   NDCG: 0.973
+
+5. Query: 'Rosalind Franklin'
+   Top-10 overlap: 100.0%
+   NDCG: 1.000
+
+================================================================================
+WORST PERFORMING QUERIES (Bottom 5 by top-10 overlap)
+================================================================================
+
+1. Query: 'Ma'
+   Top-10 overlap: 90.0%
+   NDCG: 0.762
+
+2. Query: 'Ada Lovelace'
+   Top-10 overlap: 83.3%
+   NDCG: 0.939
+
+3. Query: 'Al'
+   Top-10 overlap: 80.0%
+   NDCG: 0.683
+
+4. Query: 'Stephen Hawking'
+   Top-10 overlap: 75.0%
+   NDCG: 0.936
+
+5. Query: 'Emmy Noether'
+   Top-10 overlap: 75.0%
+   NDCG: 0.891
+
+PASSED
+
+============================== 1 passed in 6.24s ===============================
